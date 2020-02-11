@@ -1,0 +1,145 @@
+% LaTeX mintafájl szakdolgozat és diplomamunkáknak az
+% SZTE Informatikai Tanszekcsoportja által megkövetelt
+% formai követelményeinek megvalósításához
+% Modositva: 2011.04.28 Nemeth L. Zoltan
+% A fájl használatához szükséges a magyar.ldf 2005/05/12 v1.5-ös vagy késõbbi verziója
+% ez letölthetõ a http://www.math.bme.hu/latex/ weblapról, a magyar nyelvû szedéshez
+% Hasznos információk, linekek, LaTeX leirasok a www.latex.lap.hu weboldalon vannak.
+%
+
+
+\documentclass[12pt]{report}
+
+%Magyar nyelvi támogatás (Babel 3.7 vagy késõbbi kell!)
+\def\magyarOptions{defaults=hu-min}
+\usepackage[magyar]{babel}
+
+%Az ékezetes betûk használatához:
+\usepackage{t1enc}% ékezetes szavak automatikus elválasztásához
+\usepackage[latin2]{inputenc}% ékezetes szavak beviteléhez
+
+% A formai kovetelmenyekben megkövetelt Times betûtípus hasznalata:
+\usepackage{times}
+
+%Az AMS csomagjai
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+%A fejléc láblécek kialakításához:
+\usepackage{fancyhdr}
+
+%Természetesen további csomagok is használhatók,
+%például ábrák beillesztéséhez a graphix és a psfrag,
+%ha nincs rájuk szükség természetesen kihagyhatók.
+\usepackage{graphicx}
+\usepackage{psfrag}
+
+%Tartalom link
+\usepackage{color}
+\usepackage[hidelinks]{hyperref}
+
+%Todok
+\usepackage{todonotes}
+
+%Sorköz
+\usepackage{setspace}
+
+%Inculde
+\usepackage{subfiles}
+
+%Ábrák
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+%Mediso
+\newcommand*{\cim}{Csigolya- és bordacímkézés}
+%Szakdoga
+%\newcommand*{\cim}{Csigolya- és borda szegmentálás alacsony dózisú CT felvételeken}
+
+\newcommand{\todoi}[1]{\todo[inline]{\textbf{TODO:} #1}}
+
+%Tételszerû környezetek definiálhatók, ezek most fejezetenkent egyutt szamozodnak, pl.
+\newtheorem{tét}{Tétel}[chapter]
+\newtheorem{defi}[tét]{Definíció}
+\newtheorem{lemma}[tét]{Lemma}
+\newtheorem{áll}[tét]{Állítás}
+\newtheorem{köv}[tét]{Következmény}
+
+%Ha a megjegyzések és a példak szövegét nem akarjuk dõlten szedni, akkor
+%az alábbi parancs után kell õket definiální:
+\theoremstyle{definition}
+\newtheorem{megj}[tét]{Megjegyzés}
+\newtheorem{pld}[tét]{Példa}
+
+%Margók:
+\hoffset -1in
+\voffset -1in
+\oddsidemargin 35mm
+\textwidth 150mm
+\topmargin 15mm
+\headheight 10mm
+\headsep 5mm
+\textheight 237mm
+
+\renewcommand{\baselinestretch}{1.5}
+
+
+\begin{document}
+
+%A FEJEZETEK KEZDÕOLDALAINAK FEJ ES LÁBLÉCE:
+%a plain oldalstílust kell átdefiniálni, hogy ott ne legyen fejléc:
+\fancypagestyle{plain}{%
+%ez mindent töröl:
+\fancyhf{}
+% a láblécbe jobboldalra kerüljön az oldalszám:
+\fancyfoot[R]{\thepage}
+%elválasztó vonal sem kell:
+\renewcommand{\headrulewidth}{0pt}
+}
+
+%A TÖBBI OLDAL FEJ ÉS LÁBLÉCE:
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\cim}
+\fancyfoot[R]{\thepage}
+
+\include{cimoldalMediso}
+%\include{cimoldalSzakdoga}
+
+\include{toc}
+
+\include{feladat}
+
+%\include{tartalmi}
+
+%\include{bevezetes}
+
+%Érdemi rész
+
+%\include{ct}
+
+%\include{gerincborda}
+
+%\include{irodalom}
+
+\include{borda}
+
+\include{eredmenyek}
+
+%%\include{fugg}
+
+%Érdemi rész vége
+
+%\include{nyilatkozat}
+
+%\include{koszonet}
+
+\include{irodalomjegyz}
+
+\end{document}

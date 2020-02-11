@@ -1,0 +1,43 @@
+%% Az itrodalomjegyzek keszitheto a BibTeX segedprogrammal:
+%\bibliography{diploma}
+%\bibliographystyle{plain}
+
+%VAGY "kézzel" a következõ módon:
+{\footnotesize{
+\begin{thebibliography}{9}
+%10-nél kevesebb hivatkozás esetén
+\addcontentsline{toc}{section}{Irodalomjegyzék}
+%\begin{thebibliography}{99}
+% 10-nél több hivatkozás esetén
+
+%Elso szerzok vezetekneve alapjan ábécérendben rendezve.
+{\setstretch{1.0}
+\begin{comment}
+%folyóirat cikk: szerzok(k), a folyóirat neve kiemelve,
+%az evfolyam felkoveren, zarojelben az evszam, vegul az oldalszamok es pont.
+\bibitem{Gischer}
+J. L. Gischer,
+The equational theory of pomsets.
+\emph{Theoret. Comput. Sci.}, \textbf{61}(1988), 199--224.
+
+%könyv (szerzo(k), a könyv neve kiemelve, utana a kiado, a kiado szekhelye, az evszam es pont.)
+\bibitem{Pin}
+J.-E. Pin,
+\emph{Varieties of Formal Languages},
+Plenum Publishing Corp., New York, 1986.
+\end{comment}
+\bibitem{SegmOfRibs}
+Jaesung Lee and Anthony P. Reeves,
+\emph{Segmentation of Individual Ribs from Low-dose Chest CT},
+School of Electrical and Computer Engineering
+Cornell University, Ithaca, NY, USA, 2010
+
+}
+
+
+\end{thebibliography}
+
+\todoi{10-es betûméret kell}
+
+}
+}
