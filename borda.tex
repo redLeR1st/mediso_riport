@@ -1,130 +1,64 @@
+% !TeX encoding = ISO-8859-2
+
 \chapter{Borda címkézés}
 
 A bordák címkézését megvalósító algoritmushoz J. Lee és társai \cite{SegmOfRibs} publikációjában megfogalmazottakat vettem alapul.
 Ez alapján az algoritmusom fõbb lépései a~\ref{fig:alg1}ábrán láthatjuk.
 Az alábbi alfejezetben ezeket taglalom részletesen.
-
-
-\begin{comment}
+   
 \begin{figure}[h]
-\begin{tikzpicture}[node distance=2cm]
-\node (start) [startstop] {Start};
 
-\node (in1) [io, below of=start] {Input};
-
-\node (pro1) [process, below of=in1] {Process 1};
-
-\node (dec1) [decision, below of=pro1] {Decision 1};
-
-\draw [arrow] (start) -- (in1);
-
-\end{tikzpicture}
+\includegraphics{borda_fo_algoritmus.pdf}
+\centering
 \caption{Algoritmus lépései} \label{fig:alg1}
 \end{figure}
 
-Lásd a~\ref{fig:alg1} ábrát
-\end{comment}
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
-
-
-
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
-\begin{figure}[h]
-\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-%uncomment if require: \path (0,790); %set diagram left start at 0, and has height of 790
-\begin{comment}
-%Rounded Rect [id:dp2767672278888731] 
-\draw   (19,182) .. controls (19,177.58) and (22.58,174) .. (27,174) -- (81,174) .. controls (85.42,174) and (89,177.58) .. (89,182) -- (89,206) .. controls (89,210.42) and (85.42,214) .. (81,214) -- (27,214) .. controls (22.58,214) and (19,210.42) .. (19,206) -- cycle ;
-%Shape: Rectangle [id:dp8647818099539468] 
-\draw   (130,157) -- (295.5,157) -- (295.5,230) -- (130,230) -- cycle ;
-%Shape: Rectangle [id:dp2603437869787715] 
-\draw   (357,157) -- (522.5,157) -- (522.5,230) -- (357,230) -- cycle ;
-%Straight Lines [id:da5484716971033619] 
-\draw    (295.5,193) -- (355.5,193) ;
-\draw [shift={(357.5,193)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da30463923813096305] 
-\draw    (88.5,193) -- (128.5,193) ;
-\draw [shift={(130.5,193)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Rounded Rect [id:dp15178929479484649] 
-\draw   (162,269) .. controls (162,264.58) and (165.58,261) .. (170,261) -- (224,261) .. controls (228.42,261) and (232,264.58) .. (232,269) -- (232,293) .. controls (232,297.42) and (228.42,301) .. (224,301) -- (170,301) .. controls (165.58,301) and (162,297.42) .. (162,293) -- cycle ;
-%Rounded Rect [id:dp7227517534163157] 
-\draw   (401,269) .. controls (401,264.58) and (404.58,261) .. (409,261) -- (463,261) .. controls (467.42,261) and (471,264.58) .. (471,269) -- (471,293) .. controls (471,297.42) and (467.42,301) .. (463,301) -- (409,301) .. controls (404.58,301) and (401,297.42) .. (401,293) -- cycle ;
-%Straight Lines [id:da7953242552030451] 
-\draw    (197.5,230) -- (197.5,259) ;
-\draw [shift={(197.5,261)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da606903487072117] 
-\draw    (437.5,229) -- (437.5,258) ;
-\draw [shift={(437.5,260)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Shape: Rectangle [id:dp7308454540113443] 
-\draw   (229,350) -- (394.5,350) -- (394.5,423) -- (229,423) -- cycle ;
-%Straight Lines [id:da29158296587636934] 
-\draw    (191.5,301) -- (191.5,386) -- (226.5,386) ;
-\draw [shift={(228.5,386)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da05343285480180793] 
-\draw    (438,301) -- (439.5,385) -- (397.5,385.95) ;
-\draw [shift={(395.5,386)}, rotate = 358.7] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Rounded Rect [id:dp8543857265888923] 
-\draw   (275,466) .. controls (275,461.58) and (278.58,458) .. (283,458) -- (337,458) .. controls (341.42,458) and (345,461.58) .. (345,466) -- (345,490) .. controls (345,494.42) and (341.42,498) .. (337,498) -- (283,498) .. controls (278.58,498) and (275,494.42) .. (275,490) -- cycle ;
-%Shape: Rectangle [id:dp9987709064666059] 
-\draw   (227,525) -- (392.5,525) -- (392.5,598) -- (227,598) -- cycle ;
-%Rounded Rect [id:dp16042521623525974] 
-\draw   (241,646.6) .. controls (241,639.09) and (247.09,633) .. (254.6,633) -- (366.9,633) .. controls (374.41,633) and (380.5,639.09) .. (380.5,646.6) -- (380.5,687.4) .. controls (380.5,694.91) and (374.41,701) .. (366.9,701) -- (254.6,701) .. controls (247.09,701) and (241,694.91) .. (241,687.4) -- cycle ;
-%Straight Lines [id:da032128814783022985] 
-\draw    (309,423) -- (309.47,456) ;
-\draw [shift={(309.5,458)}, rotate = 269.18] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da381989921011024] 
-\draw    (309,497) -- (309.46,523) ;
-\draw [shift={(309.5,525)}, rotate = 268.98] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da09657067888129633] 
-\draw    (309,598) -- (309.47,633) ;
-\draw [shift={(309.5,635)}, rotate = 269.23] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-
-% Text Node
-\draw (54,194) node   [align=left] {Input CT};
-% Text Node
-\draw (120,129) node    {$$};
-% Text Node
-\draw (212.75,193.5) node   [align=left] {Csont szegmentálás};
-% Text Node
-\draw (439.75,193.5) node   [align=left] {Gerinc kijelölése};
-% Text Node
-\draw (197,281) node   [align=left] {Csont};
-% Text Node
-\draw (436,281) node   [align=left] {Gerinc};
-% Text Node
-\draw (311.75,386.5) node   [align=left] {Magpontok};
-% Text Node
-\draw (310,478) node   [align=left] {Bordák};
-% Text Node
-\draw (309.75,561.5) node   [align=left] {Bordánkénti magpontok};
-% Text Node
-\draw (310.75,667) node   [align=left] {Címkézett bordák};
-
-\end{comment}
-\end{tikzpicture}
-\caption{Algoritmus lépései} \label{fig:alg1}
-\end{figure}
-
-
-\todoi{szebb és jobb ábra}
 
 \section{Csont szegmentálása}
-Otsu szegmentálási módszere, olyan megoldást nyújt, mely segítségével csak a kép hisztogramját használjuk fel a küszöbérték meghatározására.
-A módszer lényegében a kiugró intenzitások között találja meg a küszöbértéket.
+Egy CT felvételen a levegõtõl a vízen át a csontokon keresztül a kemény implantátumokkal befejezõleg rengeteg különbözõ intenzitás fellelhetõ.
+A feladat szempontjából nekünk a csontot reprezentáló intenzitásokra van szükségünk.
+Meg kell határoznunk, hogy különbözõ képeken hol található a határ a lágy szövetek és a csont között.
+Ennek a megoldását részletezem a következõkben.
 
-Több küszöbérték keresésére is alkalmas, CT képek esetén például egyszerû megoldást nyújt a háttér, a levegõ, a lágy szövet, és a csont elválasztására.
-Az algoritmusban nekünk a legutóbbira van szükségünk.
+\subsection{Otsu szegmentálás}
+Otsu szegmentálási módszere, olyan automatikus megoldást nyújt, mely segítségével elég csak a kép hisztogramát felhasználnunk a küszöbérték meghatározására.
+Az algoritmus lényegében azt a \textit{t} küszöbértéket keresi, amely minimalizálja az objektum és a háttér közötti varianciát.\cite{otsu}
+
+
+\begin{figure}[htp]
+	
+	\includegraphics{otsu_hist.png}
+	\centering
+	\caption{Histogram és otsuval meghatározott threshold érték} \label{fig:otsu_hist}
+\end{figure}
+A módszer az alábbi képlet minimalizálásával találja meg az optimális \textit{t} küszöb értéket.
+\begin{figure}[htp]
+	\begin{equation}
+	\sigma_w^2 = \omega_0(t)\sigma_0^2 + \omega_1(t)\sigma_1^2
+	\end{equation}
+	\centering
+	\caption{Variancia képlet} \label{fig:var}
+\end{figure}
+
+
+\subsection{Csont szegmentálása CT képeken}
+Otsu módszere több küszöbérték keresésére is alkalmas, CT képek esetén például egyszerû megoldást nyújt a háttér, a levegõ, a lágy szövet, és a csont elválasztására.
 \todoi{Folytatni}
 
 \section{Gerinc kijelölés}
+A gerinc helyzetének meghatározása kulcsfontosságú a bordadetektálás szempontjából.
+Tudjuk, hogy a bordák, a gerinchez kapcsolódnak, ezért, ha ismerjük a gerinc helyzetét, könnyen megtalálhatjuk a csigolyákhoz tartozó bordákat is, a gerinc mentét pásztázva.
+
+\subsection{Hough transzformáció}
+\todoi{Megírni a Houg-ot}
+
+\subsection{Körök keresése axiális szeleteken}
 A gerinc kijelölésének algoritmusa egy egyszerû észrevételen alapszik, miszerint a gerinc az axiális vetületekbõl
 nézve kör alakú.
-A meghatározott minimum illetve maximum méretõ körök detektálására/keresésére egy lehetséges módszer a Hough transzformáció.
-A szegmentált kép axiális szeletein keressünk kör, illetve kör alakú objektumot.
-Ez a kör nagy valószínõséggel a gerincre fog esni, mivel az axiális vetületeken kevés más hasonló méretû kör alakú objektum látható.
+A szegmentált kép axiális szeletein keressünk kör, illetve kör alakú objektumot a Hough transzformáció segítségével.
+A talált körök nagy valószínûséggel a gerincre fognak esni, mivel az axiális vetületeken kevés más hasonló méretû kör alakú objektum látható.
+\subsection{Körök helyzetének korrigálása}
 Elõfordulhat azonban, hogy a keresést zaj, kevés csont vagy más körlakú objektumok (például aorta) jelenléte nehezíti meg.
-
 A Hough transzformáció segítségével több kör detektálására is képesek vagyunk egy képen.
 Ezeket a köröket sorba rendezhetjük aszerint, hogy mennyire valószínû, hogy valóban körrõl van szó.
 Szeletenként az elsõ helyen álló kör a legvalószínûbb, hogy csigolyára esik ezt vehetjük alapul.
@@ -134,12 +68,157 @@ Mivel az elején feltettük hogy az elsõnek választott körök többnyire jó helyen v
 
 Ha az átlagtól nagyban eltérõ kört találunk, haladjunk végig a Hough transzformáció által nyújtott körök listáján és helyettesítsük a kiugró kört egy olyan körrel, ami legközelebb van az átlaghoz a listában.
 Ezt a megoldást nevezhetjük elsõ korrekciós lépésnek.
+\begin{comment}
+\begin{figure}[h]
+	\includegraphics{korrig_1_60}
+	\centering
+	\caption{Körök elsõ korrigálása} \label{fig:korrig_1_1}
+\end{figure}
+\end{comment}
 
+\subsection{Körök helyzetének második korrigálása}
 Elõfordulhat olyan eset is, hogy az adott szeleten egyáltalán nem látszik kör, például a ritka csontozat miatt.
 Ebben az esetben a Hough transzformáció aligha fog megfelelõ pozíciójú kört találni.
 Ennek a problémának a megoldására szolgál az úgynevezett második korrekciós lépés, mely szerint lokálisan, a körnek meghatározott számú szomszédjából számolunk átlag/medián pozíciót.
 A rossz helyen lévõ kört ezzel kiszámolt értékkel helyettesítjük.
 A módszer átlagoló/medián szûrõhöz hasonló elven mûködik.
+\begin{comment}
+\begin{figure}[h]
+	\includegraphics{korrig_2_60}
+	\centering
+	\caption{Körök második korrigálása} \label{fig:korrig_2_1}
+\end{figure}
+\end{comment}
+\begin{figure}[h]
+	\includegraphics{gerinc_kinyeres.pdf}
+	\centering
+	\caption{Gerinckijelölés lépései} \label{fig:gerinc_ki}
+\end{figure}
+
+\begin{figure}[!tbp]
+	\centering
+	\begin{minipage}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{korrig_0_60}
+		\caption{Korrigálatlan}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{korrig_1_60}
+		\caption{Elsõ korrigálás}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{korrig_2_60}
+		\caption{Második korrig}
+	\end{minipage}
+\end{figure}
+
+%------------------------------------------------------------
+
+\begin{figure}[h]
+	\includegraphics{gerinc_kinyeres.pdf}
+	\centering
+	\caption{Gerinckijelölés lépései} \label{fig:gerinc_ki}
+\end{figure}
+
+\begin{figure}[!tbp]
+	\centering
+	\begin{minipage}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{korrig_0_59}
+		\caption{Korrigálatlan}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{korrig_1_59}
+		\caption{Elsõ korrigálás}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{korrig_2_59}
+		\caption{Második korrig}
+	\end{minipage}
+\end{figure}
+
+%------------------------------------------------------------
+
+\begin{figure}[h]
+	\includegraphics{gerinc_kinyeres.pdf}
+	\centering
+	\caption{Gerinckijelölés lépései} \label{fig:gerinc_ki}
+\end{figure}
+
+\begin{figure}[!tbp]
+	\centering
+	\begin{minipage}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{korrig_0_58}
+		\caption{Korrigálatlan}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{korrig_1_58}
+		\caption{Elsõ korrigálás}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{korrig_2_58}
+		\caption{Második korrig}
+	\end{minipage}
+\end{figure}
+
+%------------------------------------------------------------
+
+\begin{figure}[h]
+	\includegraphics{gerinc_kinyeres.pdf}
+	\centering
+	\caption{Gerinckijelölés lépései} \label{fig:gerinc_ki}
+\end{figure}
+
+\begin{figure}[!tbp]
+	\centering
+	\begin{minipage}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{korrig_0_57}
+		\caption{Korrigálatlan}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{korrig_1_57}
+		\caption{Elsõ korrigálás}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{korrig_2_57}
+		\caption{Második korrig}
+	\end{minipage}
+\end{figure}
+
+%------------------------------------------------------------
+
+\begin{figure}[h]
+	\includegraphics{gerinc_kinyeres.pdf}
+	\centering
+	\caption{Gerinckijelölés lépései} \label{fig:gerinc_ki}
+\end{figure}
+
+\begin{figure}[!tbp]
+	\centering
+	\begin{minipage}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{korrig_0_56}
+		\caption{Korrigálatlan}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{korrig_1_56}
+		\caption{Elsõ korrigálás}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{korrig_2_56}
+		\caption{Második korrig}
+	\end{minipage}
+\end{figure}
+
+%------------------------------------------------------------
+
 
 
 \section{Magpontok meghatározása}
@@ -148,6 +227,9 @@ A bordákat régiónöveléssel tudjuk kijelölni a szegmentált képen.
 A régiónöveléshez magpontokra van szükségünk.
 Tudjuk, hogy a borda hozzákapcsolódik a gerinchez, ezért célszerû a gerinc mentén egy bizonyos méretõ sávban keresni a magpontokat.
 Ha a keresés során csontba ütközünk, akkor indítsunk régiónövelést, és mentsük el a magpont koordinátáit, a késõbbi címkézés meghatározásához.
+
+\section{Nem bordaalakú bojektumok eltávolítása}
+\todoi{kitalálni, hogy hogy is mûködik}
 
 \section{Bordák címkézés }
 \todoi{Címkézést is le kéne írni}
