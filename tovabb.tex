@@ -5,4 +5,11 @@
 A feladat CT felvételeken történõ csigolyák vagy bordák címkézését megvalósító algoritmus fejlesztése volt.
 Az elkészült algoritmus képes a  91\%-os pontossággal szegmentálni és 70\%-os pontossággal címkézni a bordákat.
 E mellett 81\% érhetõ el fix címke megadásával.
+Az algoritmus tehát nagy százalékban képes szegmentálni a bordákat, de a címkézés már gyengébb eredményt szolgáltat.
+A borda alakú objektumok szûrésénél elõfordulhat, hogy egy-egy borda nem tesz eleget az algoritmusban felállított feltételnek, ezért eltávolításra kerül, és innentõl kezdve a címkézés is elcsúszik.
+A fix pont megadása segít a problémán, ugyan akkor, ha középsõ szakaszról kerül hibásan eltávolításra egy borda, akkor megint csak hibás lesz a fölötte lévõ bordák címkéje.
+
 A megvalósítás ezen kívül tartalmaz még a címkézett bordák alapján történõ csigolyák közötti rések - ezzel együtt konkrét csigolya címkék - meghatározását is.
+Az ezzel kapcsolatos eredmények azt mutatják, hogy a gerinc középsõ régióján könnyebb becslést adni a csigolyák közötti határokra, itt az átlagos legkisebb hiba a T7-es csigolyánál van, 2,58 szelettel téveszti el az eredeti határ helyét.
+A legnagyobb hiba 9,09 szelet, a T12 csigolyánál található ahol a lengõbordák helyezkednek el.
+Ahhoz, hogy a lengõbordák alapján tudjuk jól elkülöníteni a csigolyákat nagyon közel kell magpontot keresnünk a csigolyákhoz, ez pedig újabb hibára ad lehetõséget.
