@@ -1,15 +1,28 @@
-\BOOKMARK [1][-]{chapter*.3}{Feladatki\355r\341s}{}% 1
-\BOOKMARK [0][-]{chapter.1}{Borda c\355mk\351z\351s}{}% 2
-\BOOKMARK [1][-]{section.1.1}{Csont szegment\341l\341sa}{chapter.1}% 3
-\BOOKMARK [2][-]{subsection.1.1.1}{Otsu szegment\341l\341s}{section.1.1}% 4
-\BOOKMARK [2][-]{subsection.1.1.2}{Csont szegment\341l\341sa CT k\351peken}{section.1.1}% 5
-\BOOKMARK [1][-]{section.1.2}{Gerinc kijel\366l\351s}{chapter.1}% 6
-\BOOKMARK [2][-]{subsection.1.2.1}{Hough transzform\341ci\363}{section.1.2}% 7
-\BOOKMARK [2][-]{subsection.1.2.2}{K\366r\366k keres\351se axi\341lis szeleteken}{section.1.2}% 8
-\BOOKMARK [2][-]{subsection.1.2.3}{K\366r\366k helyzet\351nek korrig\341l\341sa}{section.1.2}% 9
-\BOOKMARK [2][-]{subsection.1.2.4}{K\366r\366k helyzet\351nek m\341sodik korrig\341l\341sa}{section.1.2}% 10
-\BOOKMARK [1][-]{section.1.3}{Magpontok meghat\341roz\341sa}{chapter.1}% 11
-\BOOKMARK [1][-]{section.1.4}{Nem bordaalak\372 bojektumok elt\341vol\355t\341sa}{chapter.1}% 12
-\BOOKMARK [1][-]{section.1.5}{Bord\341k c\355mk\351z\351s }{chapter.1}% 13
-\BOOKMARK [0][-]{chapter.2}{Eredm\351nyek}{}% 14
-\BOOKMARK [1][-]{chapter*.13}{Irodalomjegyz\351k}{chapter.2}% 15
+\BOOKMARK [1][-]{chapter*.2}{Feladatki\355r\341s}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Irodalom \341ttekint\351s}{}% 2
+\BOOKMARK [1][-]{section.1.1}{Borda c\355mk\351z\351s}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.1.1}{Bord\341k szegment\341l\341sa alacsony sug\341rz\341s\372 CT k\351pek seg\355ts\351g\351vel SegmOfRibs}{section.1.1}% 4
+\BOOKMARK [2][-]{subsection.1.1.2}{Bord\341k szegment\341l\341sa CT k\351peken, cikk\366sszefoglal\363 Rew}{section.1.1}% 5
+\BOOKMARK [1][-]{section.1.2}{Csigolya c\355mk\351z\351s}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.2.1}{M\351rf\366ldko a CT csigolyaszegment\341l\341sban milstone}{section.1.2}% 7
+\BOOKMARK [0][-]{chapter.2}{Borda c\355mk\351z\351s}{}% 8
+\BOOKMARK [1][-]{section.2.1}{Csont szegment\341l\341sa}{chapter.2}% 9
+\BOOKMARK [2][-]{subsection.2.1.1}{Otsu szegment\341l\341s}{section.2.1}% 10
+\BOOKMARK [2][-]{subsection.2.1.2}{Csont szegment\341l\341sa CT k\351peken}{section.2.1}% 11
+\BOOKMARK [1][-]{section.2.2}{Gerinc kijel\366l\351s}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.1}{Hough transzform\341ci\363}{section.2.2}% 13
+\BOOKMARK [2][-]{subsection.2.2.2}{K\366r\366k keres\351se axi\341lis szeleteken}{section.2.2}% 14
+\BOOKMARK [2][-]{subsection.2.2.3}{K\366r\366k helyzet\351nek korrig\341l\341sa}{section.2.2}% 15
+\BOOKMARK [2][-]{subsection.2.2.4}{K\366r\366k helyzet\351nek m\341sodik korrig\341l\341sa}{section.2.2}% 16
+\BOOKMARK [1][-]{section.2.3}{Magpontok meghat\341roz\341sa}{chapter.2}% 17
+\BOOKMARK [1][-]{section.2.4}{Nem bordaalak\372 objektumok elt\341vol\355t\341sa}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.5}{Bord\341k c\355mk\351z\351s}{chapter.2}% 19
+\BOOKMARK [0][-]{chapter.3}{Csigoly\341k elv\341laszt\341sa}{}% 20
+\BOOKMARK [1][-]{section.3.1}{Csigoly\341k k\366z\366tti r\351sek berajzol\341s}{chapter.3}% 21
+\BOOKMARK [0][-]{chapter.4}{Eredm\351nyek}{}% 22
+\BOOKMARK [1][-]{section.4.1}{Bordac\355mk\351z\351s}{chapter.4}% 23
+\BOOKMARK [1][-]{section.4.2}{Csigoly\341k sz\351tv\341laszt\341sa}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.3}{K\374l\366nb\366zo esetek r\351szeredm\351nyeinek szeml\351ltet\351se bord\341kra}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.4}{K\374l\366nb\366zo esetek r\351szeredm\351nyeinek szeml\351ltet\351se csigoly\341kra}{chapter.4}% 26
+\BOOKMARK [0][-]{chapter.5}{\326sszefoglal\341s}{}% 27
+\BOOKMARK [1][-]{chapter*.4}{Irodalomjegyz\351k}{chapter.5}% 28

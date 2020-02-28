@@ -1,0 +1,22 @@
+% !TeX encoding = ISO-8859-2
+
+\chapter{Csigolyák elválasztása}
+Az elõzõ fejezetben bordák szegmentálásáról, és címkézésérõl volt szó.
+Mindegyik borda meghatározott csigolyához kapcsolódik, ezt kihasználva adott bordához tartozó csigolya pozícióját tudjuk becsülni.
+Azt is tudjuk továbbá, hogy a borda a csigolya felsõ részéhez kapcsolódik, így ezzel a módszerrel a csigolya teteje, illetve a csigolyák közötti rés detektálásával érdemes kísérletezni.
+
+\section{Csigolyák közötti rések berajzolás}
+Az alábbi módszer nem alkalmas a csigolyák dõlésszögének a meghatározására.
+Viszont csigolyánként megadhatunk vele mélységértéket, vagyis megjeleníthetjük a felhasználószámára, hogy adott axiális szeleten melyik csigolya látható.
+
+A módszer a borda detektálás utolsó lépésben, vagyis a címkézéseben történik.
+A bordákat axiális szeletenként végig pásztázzuk, amikor elhagyunk egy bordát, feljegyezzük az elhagyáskori axiális szelet sorszámát.
+így teszünk mindkét oldali bordákkal.
+Mikor jobbról is balról is elhagyunk egy-egy bordát, a két magasság értékbõl számoljunk átlagot.
+Az átlag számolás segítségével kiküszöbölhetjük, azt az esetet, mikor a ferde gerinc miatt az egyik borda lejjebb, míg a másik feljebb kerül a képen.
+Az így kapott eredmény lesz az adott csigolya teteje.
+
+Az eredményekbõl láthatjuk, hogy a csigolya határok detektálása a gerinc középsõ részén eredményezi a legkisebb hibát.
+Ez abból adódhat, hogy ezen a régión a gerinc többnyire függõleges.
+A lengõbordák segítségével történõ csigolya detektálás gyenge eredményeket szolgáltat.
+Végül ahogy haladunk felfelé a gerinc oszlopon úgy csökken a bordák közötti hely illetve a csigolyák mérete is csökken, valamint a gerinc fokozatos meghajlás is megnehezíti az optimális magasságérték meghatározását.

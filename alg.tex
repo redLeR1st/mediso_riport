@@ -1,0 +1,140 @@
+% !TeX encoding = ISO-8859-2
+
+
+\chapter*{Algoritmusok}
+E fejezetben a leglényegesebb algoritmusok leírását adom meg.
+Az elsõ algoritmus (\ref{alg:algo_bordadetect}) a bordák detektálását, a második pedig a gerinc kijelölését írja le, mind a három korrigálással (\ref{alg:algo_gerinckijeloles}).
+
+\IncMargin{1em}
+\begin{algorithm}
+	\SetKwData{csontKep}{csontKep}\SetKwData{korLista}{korLista}\SetKwData{korSzam}{korSzam}
+	\SetKwData{kor}{kor}\SetKwData{korokListaja}{korokListaja}
+	\SetKwData{axialSzelet}{axialSzelet}
+	\SetKwData{korLista}{korLista}
+	\SetKwData{retKorLista}{retKorLista}
+	\SetKwData{bordaKep}{bordaKep}
+	\SetKwData{length}{length}
+	\SetKwData{regioNoveles}{regioNoveles}
+	\SetKwData{index}{index}
+	
+	\SetKwFunction{sizeY}{sizeY}
+	\SetKwFunction{korX}{korX}
+	\SetKwFunction{korY}{korY}
+	\SetKwFunction{hough}{hough}
+	\SetKwFunction{metszikEgymast}{metszikEgymast}
+	\SetKwFunction{tavolsag}{tavolsag}
+	\SetKwFunction{masol}{masol}
+	\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+	
+	\BlankLine
+	\Input{CT kép \csontKep, korrigált körök listája \korLista}
+	\Output{Bordákat tartalmazó kép \bordaKep}
+	
+	\BlankLine
+	\bordaKep $\leftarrow$ \masol{\csontKep}\;
+	$z$ $\leftarrow$ 0\;
+	
+	\BlankLine
+	\ForEach{\kor in \korLista}{
+		\tcc{Bal oldali borda}
+		$x$ $\leftarrow$ \korX{\kor} - 7\; \tcp*[h]{Kis távolság a kör középpontjától}\;
+		\For{$y$ $\leftarrow$ 0\; $y$ < \sizeY{\csontKep}; $y$ $\leftarrow$ $y$ + 1}{
+			\If{\csontKep[$x$,$y$,$z$] == 1}{
+				\bordaKep $\leftarrow$ \regioNoveles{\csontKep[$x$,$y$,$z$]}
+			}
+		}	
+		\tcc{Jobb oldali borda}
+		$x$ $\leftarrow$ \korX{\kor} + 7\; \tcp*[h]{Kis távolság a kör középpontjától}\;
+		\For{$y$ $\leftarrow$ 0\; $y$ < \sizeY{\csontKep}; $y$ $\leftarrow$ $y$ + 1}{
+			\If{\csontKep[$x$,$y$,$z$] == 1}{
+				\bordaKep $\leftarrow$ \regioNoveles{\csontKep[$x$,$y$,$z$]}
+			}
+		}	
+		$z$ $\leftarrow$ $z$ + 1\;
+	}
+
+	\KwRet{\bordaKep}\;
+	
+	\caption{Bordák detektálása}\label{alg:algo_bordadetect}
+\end{algorithm}\DecMargin{1em}
+
+
+
+
+\IncMargin{1em}
+\begin{algorithm}
+	\SetKwData{csontKep}{csontKep}\SetKwData{korLista}{korLista}\SetKwData{korSzam}{korSzam}
+	\SetKwData{kor}{kor}\SetKwData{korokListaja}{korokListaja}
+	\SetKwData{axialSzelet}{axialSzelet}
+	\SetKwData{korLista}{korLista}
+	\SetKwData{retKorLista}{retKorLista}
+	\SetKwData{korAtlag}{korAtlag}
+	\SetKwData{length}{length}
+	\SetKwData{filterMerete}{filterMerete}
+	\SetKwData{integerMax}{integerMax}
+	
+	\SetKwFunction{hough}{hough}
+	\SetKwFunction{metszikEgymast}{metszikEgymast}
+	\SetKwFunction{tavolsag}{tavolsag}
+	\SetKwFunction{masol}{masol}
+	
+	\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+	
+	\Input{CT kép \csontKep}
+	\Output{Axiális szeletenként egy kör \retKorLista}
+	
+	\BlankLine
+	\korSzam $\leftarrow$ 8\;
+	\korAtlag $\leftarrow$ 0\;
+		
+	\BlankLine
+	\tcc{Több kört keresünk egy axiális szeleten, ezeket a köröket egy listában tároljuk}
+	\ForEach{\axialSzelet in \csontKep}{
+		\korokListaja $\leftarrow$ \hough{\axialSzelet, \korSzam}\;
+	}
+	
+	\BlankLine
+	\tcc{Elsõ helyen lévõ körökbõl átlagszámítás}
+	\ForEach{\korLista in \korokListaja}{
+		\kor $\leftarrow$ \korLista[0]\;
+		
+		\korAtlag $\leftarrow$ \korAtlag$ + \kor$ \; 
+	}
+	\korAtlag $\leftarrow$ \korAtlag / \length{\korokListaja}\;
+	
+	\BlankLine
+	\tcc{Elsõ korrigálás}
+	\ForEach{\korLista in \korokListaja}{
+		\If{not \metszikEgymast{\korLista[0], \korAtlag}}{
+			$minTavolsag$ $\leftarrow$ $integerMax$\;
+			$minKor$ $\leftarrow$ \korLista[0]\;
+			\ForEach{\kor in \korLista}{
+				\If{$minTavolsag$ > \tavolsag{\kor, minKor}}{
+					$minTavolsag$ $\leftarrow$ \tavolsag{\kor, minKor}\;
+					$minKor$ $\leftarrow$ \kor\;
+				}
+			}
+			\retKorLista $\leftarrow$ $minKor$\;
+		}
+		\Else{
+			\retKorLista $\leftarrow$ \korLista[0]\;
+		}	
+	}
+
+	\BlankLine
+	\tcc{Második korrigálás}
+	\filterMerete $\leftarrow$ 15\;
+	$tempKorLista$ $\leftarrow$ \masol{\retKorLista}\;
+	\For{$i$ $\leftarrow$ \filterMerete/2; $i$ < \length{\retKorLista} - \filterMerete/2; $i$ $\leftarrow$ $i$ + 1}{
+
+		\korAtlag $\leftarrow$ 0\;
+		\For{$j$ $\leftarrow$ -\filterMerete/2\; $j$ < \filterMerete/2\; $j$ $\leftarrow$ $j$ + 1}{
+			\korAtlag $\leftarrow$ \korAtlag + $tempKorLista$[$i$ + $j$]\;
+		}
+		\retKorLista[$i$] $\leftarrow$ \korAtlag / \filterMerete;
+	}
+	
+	\KwRet{\retKorLista}\;
+	
+	\caption{Gerinc kijelölése}\label{alg:algo_gerinckijeloles}
+\end{algorithm}\DecMargin{1em}
