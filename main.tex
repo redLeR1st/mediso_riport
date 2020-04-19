@@ -1,4 +1,4 @@
-% !TeX encoding = ISO-8859-2
+	% !TeX encoding = ISO-8859-2
 
 % LaTeX mintafájl szakdolgozat és diplomamunkáknak az
 % SZTE Informatikai Tanszekcsoportja által megkövetelt
@@ -36,6 +36,7 @@
 %ha nincs rájuk szükség természetesen kihagyhatók.
 \usepackage{graphicx}
 \usepackage{psfrag}
+\usepackage{subcaption}
 
 %Tartalom link
 \usepackage{color}
@@ -69,10 +70,15 @@
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
 \tikzstyle{arrow} = [thick,->,>=stealth]
 
+%Kép körbefuttatása
+\usepackage{wrapfig}
+
+\usepackage{lipsum}  % generates filler text
+
 %Mediso
-\newcommand*{\cim}{Csigolya- és bordacímkézés}
+%\newcommand*{\cim}{Csigolya- és bordacímkézés}
 %Szakdoga
-%\newcommand*{\cim}{Csigolya- és borda szegmentálás alacsony dózisú CT felvételeken}
+\newcommand*{\cim}{Csigolyák és bordák címkézése alacsony dózisú CT felvételeken }
 
 \newcommand{\todoi}[1]{\todo[inline]{\textbf{TODO:} #1}}
 
@@ -121,22 +127,22 @@
 \fancyhead[L]{\cim}
 \fancyfoot[R]{\thepage}
 
-\include{cimoldalMediso}
-%\include{cimoldalSzakdoga}
+%\include{cimoldalMediso}
+\include{cimoldalSzakdoga}
 
 \include{toc}
 
 \include{feladat}
 
-%\include{tartalmi}
+\include{tartalmi}
 
-%\include{bevezetes}
+\include{bevezetes}
 
 %Érdemi rész
 
-%\include{ct}
+\include{ct}
 
-%\include{gerincborda}
+\include{gerincborda}
 
 \include{irodalom}
 
@@ -154,9 +160,9 @@
 
 %Érdemi rész vége
 
-%\include{nyilatkozat}
+\include{nyilatkozat}
 
-%\include{koszonet}
+\include{koszonet}
 
 \include{irodalomjegyz}
 

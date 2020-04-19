@@ -1,4 +1,73 @@
 % !TeX encoding = ISO-8859-2
 
 \chapter{Számítógépes tomográfia}
-\todoi{pár szó a CT-rõl, mûködésérõl... alacsony dózis vs magas dózis}\dfrac{num}{den}
+
+A számítógépes tomográfia vagy CT (Computed Tomography) az orvosi képalkotás egyik területe, mely adott tárgyról vagy páciensrõl különbözõ szögekbõl besugárzott röntgen sugarak mérési eredményeit felhasználva készít keresztmetszeti képeket. A képe az objektum egy-egy szeletét ábrázolja. Ezeket a szeleteket összerakva három dimenziós képet kapunk.
+
+Az eljárás során vékony röntgen sugárral világítjuk át az objektumot.
+
+\section{A CT felépítése}
+
+A CT felépítését \aref{fig:ct} ábra szemlélteti. \cite{ctfelipetes}
+
+\begin{figure}[h]
+	\includegraphics[width=0.6\textwidth]{ct_hun}
+	\centering
+	\caption{CT felépítése \cite{ctfelipetes}} \label{fig:ct}
+\end{figure}
+
+A röntgen csõ által biztosított sugárzáson több módosítás is történik, mire az elérné az objektumot.
+A Röntgen sugár különbözõ energiájú sugárzásokat tartalmaz. 
+Ennek kezelésére szolgál a filter vagy szûrõ, mely eltünteti az alacsony energiájú sugárzásokat, melyek nem játszanak szerepet a képalkotásban, viszont növelik a páciens dózisát.
+Ezzel a módosítással egy sokkal keskenyebb spektrumú sugarat kapunk.
+Ez azért fontos, mert a képrekonstrukció arra a feltételezésre épít, hogy a sugárzás egy intenzitású energiából áll. 
+
+A szûrõ után következik az úgynevezett kollimátor, mely a szétszóródó sugarak felfogására szolgál.
+
+Az így módosított sugarak keresztülhaladnak a páciens szövetein.
+A szövetek keménységtõl függõen különbözõ mértékben nyelik el, illetve eresztik át a sugárzást.
+A detektorok azt mérik, hogy milyen mértékû ez az elnyelõdés vagy áteresztés.
+
+
+
+\section{Rekonstrukció}
+
+A CT mérési eredményeit felírhatjuk egy táblázatba, ahol az oszlopok az elfordulás szögét, a sorok pedig a vetítõsugár sorszámát reprezentálják.
+A táblázat értékei pedig az adott sugár, bizonyos szögû elfordulásnál mért intenzitásai.
+Ezt a táblázatot szinogramnak nevezzük.
+
+Rekonstrukciónak nevezzük azt az eljárást, amikor a elõállítjuk az objektum képét annak vetületi információi alapján, vagyis a szinogram alapján.
+
+\Aref{fig:matrix} ábrán egy 5x5 ös négyzetet láthatunk.
+A négyzet tartalmazza az adott pixel intenzitását, más néven áteresztõképességét, és jobb alsó indexben a pixel azonosítóját.
+Ha a szeletet különbözõ irányból besugározzuk, akkor a nyilak végén látható összegzett értékeket mérhetjük.
+A mért értékek alapján felírhatjuk \aref{eq:rek} egyenletet.
+
+
+\begin{equation} \label{eq:rek} 
+\begin{aligned}
+& a_{11} + a_{12} + a_{13} + a_{14} + a_{15} = 2 \\
+& a_{11} + a_{22} + a_{33} + a_{44} + a_{55} = 6 \\
+& a_{15} + a_{25} + a_{35} + a_{45} + a_{55} = 2 
+\end{aligned}
+\end{equation}
+
+Ha további szögekbõl folytatjuk a besugárzást, akkor több egyenletet kapunk.
+Megfelelõ számú egyenlet segítségével (a példában 25) rekonstruálhatjuk az eredeti mátrixot.
+
+A valóságban egy szelet rekonstruálásához több százezer ismeretlent kell meghatározni több százezer egyenletbõl.
+Egy sorozat pedig rengeteg szeletbõl állhat.
+
+\begin{figure}[h]
+	\includegraphics[width=0.5\textwidth]{matrix}
+	\centering
+	\caption{Rekonstruálandó objektum egy szelete} \label{fig:matrix}
+\end{figure}
+
+
+
+
+
+
+
+

@@ -1,28 +1,40 @@
 \select@language {magyar} \contentsline {section}{Feladatki\IeC {\'\i }r\'as}{4}{chapter*.2}% 
-\select@language {magyar} \contentsline {chapter}{\numberline {1}Irodalom \'attekint\'es}{5}{chapter.1}% 
-\select@language {magyar} \contentsline {section}{\numberline {1.1}Borda c\IeC {\'\i }mk\'ez\'es}{5}{section.1.1}% 
-\select@language {magyar} \contentsline {subsection}{\numberline {1.1.1}Bord\'ak szegment\'al\'asa alacsony sug\'arz\'as\'u CT k\'epek seg\IeC {\'\i }ts\'eg\'evel \cite {SegmOfRibs}}{5}{subsection.1.1.1}% 
-\select@language {magyar} \contentsline {subsection}{\numberline {1.1.2}Bord\'ak szegment\'al\'asa CT k\'epeken, cikk\"osszefoglal\'o \cite {Rew}}{7}{subsection.1.1.2}% 
-\select@language {magyar} \contentsline {section}{\numberline {1.2}Csigolya c\IeC {\'\i }mk\'ez\'es}{9}{section.1.2}% 
-\select@language {magyar} \contentsline {subsection}{\numberline {1.2.1}M\'erf\"oldk\H o a CT csigolyaszegment\'al\'asban \cite {milstone}}{9}{subsection.1.2.1}% 
-\select@language {magyar} \contentsline {chapter}{\numberline {2}Borda c\IeC {\'\i }mk\'ez\'es}{11}{chapter.2}% 
-\select@language {magyar} \contentsline {section}{\numberline {2.1}Csont szegment\'al\'asa}{11}{section.2.1}% 
-\select@language {magyar} \contentsline {subsection}{\numberline {2.1.1}Otsu szegment\'al\'as}{11}{subsection.2.1.1}% 
-\select@language {magyar} \contentsline {subsection}{\numberline {2.1.2}Csont szegment\'al\'asa CT k\'epeken}{12}{subsection.2.1.2}% 
-\select@language {magyar} \contentsline {section}{\numberline {2.2}Gerinc kijel\"ol\'es}{13}{section.2.2}% 
-\select@language {magyar} \contentsline {subsection}{\numberline {2.2.1}Hough transzform\'aci\'o}{13}{subsection.2.2.1}% 
-\select@language {magyar} \contentsline {subsection}{\numberline {2.2.2}K\"or\"ok keres\'ese axi\'alis szeleteken}{15}{subsection.2.2.2}% 
-\select@language {magyar} \contentsline {subsection}{\numberline {2.2.3}K\"or\"ok helyzet\'enek korrig\'al\'asa}{15}{subsection.2.2.3}% 
-\select@language {magyar} \contentsline {subsection}{\numberline {2.2.4}K\"or\"ok helyzet\'enek m\'asodik korrig\'al\'asa}{15}{subsection.2.2.4}% 
-\select@language {magyar} \contentsline {section}{\numberline {2.3}Magpontok meghat\'aroz\'asa}{16}{section.2.3}% 
-\select@language {magyar} \contentsline {section}{\numberline {2.4}Nem bordaalak\'u objektumok elt\'avol\IeC {\'\i }t\'asa}{19}{section.2.4}% 
-\select@language {magyar} \contentsline {section}{\numberline {2.5}Bord\'ak c\IeC {\'\i }mk\'ez\'es}{20}{section.2.5}% 
-\select@language {magyar} \contentsline {chapter}{\numberline {3}Csigoly\'ak elv\'alaszt\'asa}{21}{chapter.3}% 
-\select@language {magyar} \contentsline {section}{\numberline {3.1}Csigoly\'ak k\"oz\"otti r\'esek berajzol\'as}{21}{section.3.1}% 
-\select@language {magyar} \contentsline {chapter}{\numberline {4}Eredm\'enyek}{23}{chapter.4}% 
-\select@language {magyar} \contentsline {section}{\numberline {4.1}Bordac\IeC {\'\i }mk\'ez\'es}{23}{section.4.1}% 
-\select@language {magyar} \contentsline {section}{\numberline {4.2}Csigoly\'ak sz\'etv\'alaszt\'asa}{24}{section.4.2}% 
-\select@language {magyar} \contentsline {section}{\numberline {4.3}K\"ul\"onb\"oz\H o esetek r\'eszeredm\'enyeinek szeml\'eltet\'ese bord\'akra}{25}{section.4.3}% 
-\select@language {magyar} \contentsline {section}{\numberline {4.4}K\"ul\"onb\"oz\H o esetek r\'eszeredm\'enyeinek szeml\'eltet\'ese csigoly\'akra}{25}{section.4.4}% 
-\select@language {magyar} \contentsline {chapter}{\numberline {5}\"Osszefoglal\'as}{42}{chapter.5}% 
-\select@language {magyar} \contentsline {section}{Irodalomjegyz\'ek}{45}{chapter*.4}% 
+\select@language {magyar} \contentsline {section}{Tartalmi \"osszefoglal\'o}{5}{chapter*.3}% 
+\select@language {magyar} \contentsline {section}{Bevezet\'es}{7}{chapter*.6}% 
+\select@language {magyar} \contentsline {chapter}{\numberline {1}Sz\'am\IeC {\'\i }t\'og\'epes tomogr\'afia}{8}{chapter.1}% 
+\select@language {magyar} \contentsline {section}{\numberline {1.1}A CT fel\'ep\IeC {\'\i }t\'ese}{8}{section.1.1}% 
+\select@language {magyar} \contentsline {section}{\numberline {1.2}Rekonstrukci\'o}{9}{section.1.2}% 
+\select@language {magyar} \contentsline {chapter}{\numberline {2}Gerinc \'es borda az emberi testben}{11}{chapter.2}% 
+\select@language {magyar} \contentsline {chapter}{\numberline {3}Irodalom \'attekint\'es}{12}{chapter.3}% 
+\select@language {magyar} \contentsline {section}{\numberline {3.1}Borda c\IeC {\'\i }mk\'ez\'es}{12}{section.3.1}% 
+\select@language {magyar} \contentsline {subsection}{\numberline {3.1.1}Bord\'ak szegment\'al\'asa alacsony sug\'arz\'as\'u CT k\'epek seg\IeC {\'\i }ts\'eg\'evel \cite {SegmOfRibs}}{12}{subsection.3.1.1}% 
+\select@language {magyar} \contentsline {subsection}{\numberline {3.1.2}Bord\'ak szegment\'al\'asa CT k\'epeken, cikk\"osszefoglal\'o \cite {Rew}}{14}{subsection.3.1.2}% 
+\select@language {magyar} \contentsline {section}{\numberline {3.2}Csigolya c\IeC {\'\i }mk\'ez\'es}{16}{section.3.2}% 
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2.1}M\'erf\"oldk\H o a CT csigolyaszegment\'al\'asban \cite {milstone}}{16}{subsection.3.2.1}% 
+\select@language {magyar} \contentsline {chapter}{\numberline {4}Borda c\IeC {\'\i }mk\'ez\'es}{18}{chapter.4}% 
+\select@language {magyar} \contentsline {section}{\numberline {4.1}Csont szegment\'al\'asa}{19}{section.4.1}% 
+\select@language {magyar} \contentsline {subsection}{\numberline {4.1.1}Otsu szegment\'al\'as}{19}{subsection.4.1.1}% 
+\select@language {magyar} \contentsline {subsection}{\numberline {4.1.2}Csont szegment\'al\'asa CT k\'epeken}{19}{subsection.4.1.2}% 
+\select@language {magyar} \contentsline {section}{\numberline {4.2}Gerinc kijel\"ol\'es}{20}{section.4.2}% 
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.1}Hough transzform\'aci\'o}{20}{subsection.4.2.1}% 
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.2}K\"or\"ok keres\'ese axi\'alis szeleteken}{21}{subsection.4.2.2}% 
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.3}K\"or\"ok helyzet\'enek korrig\'al\'asa}{22}{subsection.4.2.3}% 
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.4}K\"or\"ok helyzet\'enek m\'asodik korrig\'al\'asa}{22}{subsection.4.2.4}% 
+\select@language {magyar} \contentsline {section}{\numberline {4.3}Magpontok meghat\'aroz\'asa}{23}{section.4.3}% 
+\select@language {magyar} \contentsline {section}{\numberline {4.4}Nem bordaalak\'u objektumok elt\'avol\IeC {\'\i }t\'asa}{26}{section.4.4}% 
+\select@language {magyar} \contentsline {section}{\numberline {4.5}Bord\'ak c\IeC {\'\i }mk\'ez\'es \'ujran\"oveszt\'essel}{27}{section.4.5}% 
+\select@language {magyar} \contentsline {section}{\numberline {4.6}Bord\'ak c\IeC {\'\i }mk\'ez\'es bounding boxal}{27}{section.4.6}% 
+\select@language {magyar} \contentsline {chapter}{\numberline {5}Csigoly\'ak elv\'alaszt\'asa}{29}{chapter.5}% 
+\select@language {magyar} \contentsline {section}{\numberline {5.1}Csigoly\'ak k\"oz\"otti r\'esek berajzol\'asa bord\'ak alapj\'an}{29}{section.5.1}% 
+\select@language {magyar} \contentsline {section}{\numberline {5.2}Csigoly\'ak elv\'alaszt\'asa 2D \"osszegk\'ep seg\IeC {\'\i }ts\'eg\'evel}{30}{section.5.2}% 
+\select@language {magyar} \contentsline {chapter}{\numberline {6}Eredm\'enyek}{32}{chapter.6}% 
+\select@language {magyar} \contentsline {section}{\numberline {6.1}Bordac\IeC {\'\i }mk\'ez\'es}{32}{section.6.1}% 
+\select@language {magyar} \contentsline {section}{\numberline {6.2}Csigoly\'ak sz\'etv\'alaszt\'asa bord\'ak alapj\'an}{33}{section.6.2}% 
+\select@language {magyar} \contentsline {section}{\numberline {6.3}Csigoly\'ak sz\'etv\'alaszt\'asa 2D \"osszegk\'ep alapj\'an}{34}{section.6.3}% 
+\select@language {magyar} \contentsline {section}{\numberline {6.4}K\"ul\"onb\"oz\H o esetek r\'eszeredm\'enyeinek szeml\'eltet\'ese bord\'akra}{34}{section.6.4}% 
+\select@language {magyar} \contentsline {section}{\numberline {6.5}K\"ul\"onb\"oz\H o esetek r\'eszeredm\'enyeinek szeml\'eltet\'ese csigoly\'akra}{35}{section.6.5}% 
+\select@language {magyar} \contentsline {chapter}{\numberline {7}\"Osszefoglal\'as}{49}{chapter.7}% 
+\select@language {magyar} \ 
+\select@language {magyar} \contentsline {section}{Nyilatkozat}{53}{chapter*.64}% 
+\select@language {magyar} \contentsline {section}{K\"osz\"onetnyilv\'an\IeC {\'\i }t\'as}{54}{chapter*.65}% 
+\select@language {magyar} \contentsline {section}{Irodalomjegyz\'ek}{55}{chapter*.66}% 

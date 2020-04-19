@@ -270,9 +270,9 @@ Például egy lapocka esetében a sajátértékek aránya \aref{fig:sajat_ert} ábrán az
 	\caption{Különbözõ objektumok sajátértékei} \label{fig:sajat_ert}
 \end{figure}
 
-\section{Bordák címkézés}
+\section{Bordák címkézés újranövesztéssel}
 A nem bordaalakú objektumok eltávolítása után következhet, a bordák megfelelõ sorrendben történõ címkézése.
-Az régiónövelés definiálhat egy címkézést, de nem veszi figyelembe a bordák anatómiai sorrendjét.
+Az összefüggõ komponensek algoritmusa definiálhat egy címkézést, de nem veszi figyelembe a bordák anatómiai sorrendjét.
 
 Az címkézõ algoritmus bemenete csak a bordákat tartalmazza, mivel az elõzõ lépésben eltávolítottuk az egyéb objektumokat, de fontos, hogy a bordáknak külön címkéjük legyen, vagyis külön objektumként jelenjenek meg, ezt a régiónövelés tudja biztosítani.
 A keresés ugyan olyan módszerrel történik, mint az 1.3-as fejezetben leírt magpont meghatározás, azzal a különbséggel, hogy itt már biztosak lehetünk benne, hogy csak bordák fordulhatnak elõ.
@@ -280,8 +280,18 @@ A keresés során nyilvántartunk egy számlálót.
 E számláló értékét fogjuk az adott bordához rendelni.
 Az axiális szeleteken végighaladunk és, valahányszor objektumba, vagyis bordába, ütközünk, annak az eredeti címkéjét átírjuk a számláló értékére, majd növeljük azt.
 
+\section{Bordák címkézés bounding boxal}
+Az újra növesztéses módszer nem túl hatékony, hiszen rengeteg régiónövelést tartalmaz, amit már egyszer különben is végrehajtott az algoritmus, egy elõzõ lépésben.
+Az elõzõ fejezetben is említésre került, hogy definiálva van egy anatómiailag helytelen címkézése.
+Ebben a módszerben nem növesztjük újra a bordákat, hanem az objektumokhoz tartozó címkéket módosítjuk.
+A módszer a következõ: határozzuk meg az objektumok bounding boxát.
+Az objektumok címkéjét rendezzük sorba a bounding boxok tetejének a magassága alapján.
+A sorba rendezés után frissítsük a címkéket.
+Azt is megtudjuk állapítani, hogy melyik objektum/borda melyik oldalon található, ha összehasonlítsuk a boundig boxok közepének az X koordinátáját.
+Választhatunk a boundig box közepe helyett más tetszõleges jellegzetes pontot is például egy sarkot, de akkor ezt konzisztensen kell alkalmaznunk.
 
-
+A bounding boxal való címkézés jobb eredményeket produkál mint az újranövesztéses módszer.
+Az újranövesztéssel 70\%-os pontosság érhetõ el, míg a bounding boxal 79\%.
 
 
 

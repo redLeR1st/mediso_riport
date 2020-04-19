@@ -5,7 +5,7 @@ Az elõzõ fejezetben bordák szegmentálásáról, és címkézésérõl volt szó.
 Mindegyik borda meghatározott csigolyához kapcsolódik, ezt kihasználva adott bordához tartozó csigolya pozícióját tudjuk becsülni.
 Azt is tudjuk továbbá, hogy a borda a csigolya felsõ részéhez kapcsolódik, így ezzel a módszerrel a csigolya teteje, illetve a csigolyák közötti rés detektálásával érdemes kísérletezni.
 
-\section{Csigolyák közötti rések berajzolás}
+\section{Csigolyák közötti rések berajzolása bordák alapján}
 Az alábbi módszer nem alkalmas a csigolyák dõlésszögének a meghatározására.
 Viszont csigolyánként megadhatunk vele mélységértéket, vagyis megjeleníthetjük a felhasználószámára, hogy adott axiális szeleten melyik csigolya látható.
 
@@ -20,3 +20,37 @@ Az eredményekbõl láthatjuk, hogy a csigolya határok detektálása a gerinc középsõ
 Ez abból adódhat, hogy ezen a régión a gerinc többnyire függõleges.
 A lengõbordák segítségével történõ csigolya detektálás gyenge eredményeket szolgáltat.
 Végül ahogy haladunk felfelé a gerinc oszlopon úgy csökken a bordák közötti hely illetve a csigolyák mérete is csökken, valamint a gerinc fokozatos meghajlás is megnehezíti az optimális magasságérték meghatározását.
+
+Felmerülhet, hogy a bordák bounding boxának a teteje alkalmas lehet-e a rések megtalálására.
+A kísérletek azt mutatják, hogy a fent tárgyalt módszer jobbnak bizonyul.
+Ezt annak tudhatjuk be, hogy a bordák bounding boxának a teteje nem ott helyezkedik el ahol a borda a csigolyához kapcsolódik.
+Ez a borda alakjából következik, egyes bordák a csigolyából kiindulva felfele haladnak, és késõbb indulnak meg lefelé.
+
+\section{Csigolyák elválasztása 2D összegkép segítségével}
+
+E módszer alapja az a felismerés volt, hogy a 3D kép esetén több próbálkozás ellenére
+is nehéz volt valóban 3D módszert (szegmentálás, detektálás) kifejleszteni a csigolyák
+pontos szétválasztására.
+
+Így felmerült, hogy készítsünk egy 2D képet, amely megfelelõen tartalmazza a csigo-
+lályakat és a köztük lévõ réseket is. Mivel szemmel is a szagitális nézetben legkönnyebb
+meghatározni a csigolya határait, így szaggitális összegképet készítettünk, amely y és z
+koordinátákat tartalmaz. Ahhoz, hogy az így elkészített képen jól láthatóvá váljanak a
+csigolyák, több lépésre volt szükség egy egyszerû összegkép elkészítéséhez képest:
+\begin{enumerate}
+\item a bordáknál is alkalmazott gerinc kijelölése
+\item a csak gerincet tartalmazó kép újramintavételezése, hogy izotropikus, az x,y irányú
+felbontásnak megfelelõ kép keletkezzen
+\item a szaggitális 2D összegkép elkészítése
+\item a kijelölt gerinc alapján a gerinc középvonalának kijelölése a 2D képen
+\item a gerinc középvonala mentén lokális maximumhelyek keresése, azok szûrése
+\item a maximumhelyeknél csigolyaelválasztó vonalak berajzolása
+
+\end{enumerate}
+
+
+Az így létrehozott vízszintes vonalak szétávlasztják a csigolyákat. Az eredmények
+alapján a nyaki csigolyák meghatározása a legbizonytalanabb, a többi régióban viszont
+többnyire jó eredményt biztosít.
+A megfelelõ csigolyacimkék hozzárendelélséhez szükség van egy csigolya cimkéjé-
+nek kézi megadsára, a többi csigolya ez alapján kapja meg a cimkéket.
