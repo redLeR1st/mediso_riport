@@ -1,0 +1,45 @@
+% !TeX encoding = ISO-8859-2
+
+
+%A címoldalra se fej- se lábléc nem kell:
+\thispagestyle{empty}
+
+\begin{center}
+\vspace*{1cm}
+%{\Large\bf Szegedi Tudományegyetem}
+
+\vspace{0.5cm}
+
+%{\Large\bf Informatikai Intézet}
+
+\vspace*{3.8cm}
+
+
+{\LARGE\bf \cim}
+
+
+\vspace*{3.6cm}
+
+%{\Large Diplomamunka}
+% vagy {\Large Szakdolgozat}
+
+\vspace*{4cm}
+
+%Értelemszer?en megváltoztatandó:
+{\large
+%\begin{tabular}{c@{\hspace{4cm}}c}
+
+\bf{Barta Bence}
+
+%\end{tabular}
+}
+
+\vspace*{2.3cm}
+
+{\Large
+Szeged
+\\
+\vspace{2mm}
+2020
+}
+\end{center}

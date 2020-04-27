@@ -1,13 +1,13 @@
 \BOOKMARK [1][-]{chapter*.2}{Feladatki\355r\341s}{}% 1
 \BOOKMARK [1][-]{chapter*.3}{Tartalmi \366sszefoglal\363}{}% 2
-\BOOKMARK [1][-]{chapter*.6}{Bevezet\351s}{}% 3
-\BOOKMARK [0][-]{chapter.1}{Sz\341m\355t\363g\351pes tomogr\341fia}{}% 4
-\BOOKMARK [1][-]{section.1.1}{A CT fel\351p\355t\351se}{chapter.1}% 5
-\BOOKMARK [1][-]{section.1.2}{Rekonstrukci\363}{chapter.1}% 6
+\BOOKMARK [0][-]{chapter.1}{Sz\341m\355t\363g\351pes tomogr\341fia}{}% 3
+\BOOKMARK [1][-]{section.1.1}{A CT fel\351p\355t\351se}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.2}{Rekonstrukci\363}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.3}{Orvosi k\351pek jellemzoi}{chapter.1}% 6
 \BOOKMARK [0][-]{chapter.2}{Gerinc \351s borda az emberi testben}{}% 7
 \BOOKMARK [0][-]{chapter.3}{Irodalom \341ttekint\351s}{}% 8
 \BOOKMARK [1][-]{section.3.1}{Borda c\355mk\351z\351s}{chapter.3}% 9
-\BOOKMARK [2][-]{subsection.3.1.1}{Bord\341k szegment\341l\341sa alacsony sug\341rz\341s\372 CT k\351pek seg\355ts\351g\351vel SegmOfRibs}{section.3.1}% 10
+\BOOKMARK [2][-]{subsection.3.1.1}{Bord\341k szegment\341l\341sa alacsony d\363zis\372 CT felv\351teleken SegmOfRibs}{section.3.1}% 10
 \BOOKMARK [2][-]{subsection.3.1.2}{Bord\341k szegment\341l\341sa CT k\351peken, cikk\366sszefoglal\363 Rew}{section.3.1}% 11
 \BOOKMARK [1][-]{section.3.2}{Csigolya c\355mk\351z\351s}{chapter.3}% 12
 \BOOKMARK [2][-]{subsection.3.2.1}{M\351rf\366ldko a CT csigolyaszegment\341l\341sban milstone}{section.3.2}% 13
@@ -26,14 +26,11 @@
 \BOOKMARK [1][-]{section.4.6}{Bord\341k c\355mk\351z\351s bounding boxal}{chapter.4}% 26
 \BOOKMARK [0][-]{chapter.5}{Csigoly\341k elv\341laszt\341sa}{}% 27
 \BOOKMARK [1][-]{section.5.1}{Csigoly\341k k\366z\366tti r\351sek berajzol\341sa bord\341k alapj\341n}{chapter.5}% 28
-\BOOKMARK [1][-]{section.5.2}{Csigoly\341k elv\341laszt\341sa 2D \366sszegk\351p seg\355ts\351g\351vel}{chapter.5}% 29
-\BOOKMARK [0][-]{chapter.6}{Eredm\351nyek}{}% 30
-\BOOKMARK [1][-]{section.6.1}{Bordac\355mk\351z\351s}{chapter.6}% 31
-\BOOKMARK [1][-]{section.6.2}{Csigoly\341k sz\351tv\341laszt\341sa bord\341k alapj\341n}{chapter.6}% 32
-\BOOKMARK [1][-]{section.6.3}{Csigoly\341k sz\351tv\341laszt\341sa 2D \366sszegk\351p alapj\341n}{chapter.6}% 33
-\BOOKMARK [1][-]{section.6.4}{K\374l\366nb\366zo esetek r\351szeredm\351nyeinek szeml\351ltet\351se bord\341kra}{chapter.6}% 34
-\BOOKMARK [1][-]{section.6.5}{K\374l\366nb\366zo esetek r\351szeredm\351nyeinek szeml\351ltet\351se csigoly\341kra}{chapter.6}% 35
-\BOOKMARK [0][-]{chapter.7}{\326sszefoglal\341s}{}% 36
-\BOOKMARK [1][-]{chapter*.64}{Nyilatkozat}{chapter.7}% 37
-\BOOKMARK [1][-]{chapter*.65}{K\366sz\366netnyilv\341n\355t\341s}{chapter.7}% 38
-\BOOKMARK [1][-]{chapter*.66}{Irodalomjegyz\351k}{chapter.7}% 39
+\BOOKMARK [0][-]{chapter.6}{Eredm\351nyek}{}% 29
+\BOOKMARK [1][-]{section.6.1}{Bordac\355mk\351z\351s}{chapter.6}% 30
+\BOOKMARK [1][-]{section.6.2}{Csigoly\341k sz\351tv\341laszt\341sa bord\341k alapj\341n}{chapter.6}% 31
+\BOOKMARK [1][-]{section.6.3}{K\374l\366nb\366zo esetek r\351szeredm\351nyeinek szeml\351ltet\351se bord\341kra}{chapter.6}% 32
+\BOOKMARK [1][-]{section.6.4}{K\374l\366nb\366zo esetek r\351szeredm\351nyeinek szeml\351ltet\351se csigoly\341kra}{chapter.6}% 33
+\BOOKMARK [0][-]{chapter.7}{\326sszefoglal\341s}{}% 34
+\BOOKMARK [1][-]{chapter*.30}{Nyilatkozat}{chapter.7}% 35
+\BOOKMARK [1][-]{chapter*.31}{K\366sz\366netnyilv\341n\355t\341s}{chapter.7}% 36

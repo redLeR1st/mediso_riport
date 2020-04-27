@@ -19,7 +19,7 @@ A táblázat utolsó oszlopa a fix pont segítségével címkézett bordák arányát száms
 		\toprule
 		\textbf{Bordák} & \textbf{Kiszegmentált bordák} & \textbf{Helyesen címkézett bordák} & \textbf{Fix pont megadásával}  \\ \midrule
 		1423            & 1301                          & 998                                & 1161                           \\ \midrule
-		100\%           & 91.4\%                        & 79.5\%                             & 81.5\%                         \\ \bottomrule
+		100\%           & 91.4\%                        & 70.1\%                             & 81.5\%                         \\ \bottomrule
 	\end{tabular}
 	\caption{Eredmények összefoglalása bordák címkézésére} \label{tab:eredmeny_tab}
 \centering
@@ -52,7 +52,7 @@ Az is látszik, hogy a gerinc közepénél érte el az algoritmus a legpontosabb ered
 	\caption{Hiba szemléltetése grafikonon} \label{fig:ver_hiba}
 	\centering
 \end{figure}
-\begin{comment}
+
 \section{Csigolyák szétválasztása 2D összegkép alapján}
 
 A csigolyák szétválasztása ugyanazon a 60 képen került kiértékelésre mint az elõzõ mód-
@@ -76,7 +76,7 @@ kijelölésnél, hiszen:
 \item nem csak a borda régió csigolyáit választja szét
 \item pontosabb a szétválasztás
 \end{itemize}
-\end{comment}
+
 
 
 \section{Különbözõ esetek részeredményeinek szemléltetése bordákra}
@@ -99,39 +99,37 @@ A különbözõ színû bordák különbözõ címkéket reprezentálnak.
 \begin{figure}[h]
 	\includegraphics[width=\scale\textwidth]{csont_1_7}
 	\centering
-	\caption{Csont szegmentálás (1. eset)} \label{fig:korrig_1_1}
+	\caption{Csont szegmentálás} \label{fig:korrig_1_1}
 \end{figure}
 \begin{figure}[h]
 	\includegraphics[width=\scale\textwidth]{gerinc_2_7}
 	\centering
-	\caption{Gerinc kijelölés (1. eset)} \label{fig:korrig_1_1}
+	\caption{Gerinc kijelölés} \label{fig:korrig_1_1}
 \end{figure}
 \begin{figure}[h]
 	\includegraphics[width=\scale\textwidth]{szeg_3_7}
 	\centering
-	\caption{Régiónövelés (1. eset)} \label{fig:korrig_1_1}
+	\caption{Régiónövelés} \label{fig:korrig_1_1}
 \end{figure}
 %\section*{2. eset}
 %\begin{comment}
 %-----------------------------------------
-
 \begin{figure}[h]
 	\includegraphics[width=\scale\textwidth]{csont_1_11}
 	\centering
-	\caption{Csont szegmentálás (2. eset)} \label{fig:korrig_1_1}
+	\caption{Csont szegmentálás} \label{fig:korrig_1_1}
 \end{figure}
 \begin{figure}[h]
 	\includegraphics[width=\scale\textwidth]{gerinc_2_11}
 	\centering
-	\caption{Gerinc kijelölés (2. eset)} \label{fig:korrig_1_1}
+	\caption{Gerinc kijelölés} \label{fig:korrig_1_1}
 \end{figure}
 \begin{figure}[h]
 	\includegraphics[width=\scale\textwidth]{szeg_3_11}
 	\centering
-	\caption{Régiónövelés (2. eset)} \label{fig:korrig_1_1}
+	\caption{Régiónövelés} \label{fig:korrig_1_1}
 \end{figure}
 %-----------------------------------------
-\begin{comment}
 %\section*{3. eset}
 \begin{figure}[h]
 	\includegraphics[width=\scale\textwidth]{csont_1_15}
@@ -267,22 +265,18 @@ A különbözõ színû bordák különbözõ címkéket reprezentálnak.
 	\centering
 	\caption{Régiónövelés} \label{fig:korrig_1_1}
 \end{figure}
-\end{comment}
 %-----------------------------------------
 
 
 \section{Különbözõ esetek részeredményeinek szemléltetése csigolyákra}
-A zárójelben felsorolt képeken (
-%\ref{fig:hatar_09},
-\ref{fig:hatar_12}, \ref{fig:hatar_13}
-%, \ref{fig:hatar_14}, \ref{fig:hatar_39}, \ref{fig:hatar_46}
-) a csigolya közötti rések becslését láthatjuk a borda alapú módszer segítségével.
+A zárójelben felsorolt képeken (\ref{fig:hatar_09}, \ref{fig:hatar_12}, \ref{fig:hatar_13}, \ref{fig:hatar_14}, \ref{fig:hatar_39}, \ref{fig:hatar_46}) a csigolya közötti rések becslését láthatjuk a két módszer alapján.
 A borda alapú algoritmus eredménye a piros vonal mélység koordinátája.
 A zöld nyíl azt mutatja meg, hogy hol kellene elhelyezkednie a csigolyák határának. 
 Ahol nincs drasztikus eltérés az algoritmus eredménye és a tényleges határ között, oda nem került berajzolásra.
 Láthatjuk, hogy az alsó csigolyákhoz kapcsolódó lengõbordákkal történõ becslés instabil eredményt szolgáltat, míg a gerinc közepén lévõ csigolya közti rések helyesen szerepelnek több esetben is.
 
-\begin{comment}
+A 2D összegkép alapú csigolyaszétválasztás eredményeit szintén egy-egy vonal szemlélteti (fekete).
+
 \begin{figure}[htb]%
 \centering
 \begin{minipage}[b]{0.4\textwidth}%
@@ -296,107 +290,40 @@ Láthatjuk, hogy az alsó csigolyákhoz kapcsolódó lengõbordákkal történõ becslés i
   \centerline{\includegraphics[height=10cm]{images/9}}%
   \centerline{Csigolyák (2D összegkép alapján)}\medskip%
 \end{minipage}%
-\caption{9. eset}
 \label{fig:hatar_09}
-
-\end{figure}
-\end{comment}
-
-\begin{figure}[htb]%
-\centering
-%\begin{minipage}[b]{0.4\textwidth}%
-  \centering%
-  \centerline{\includegraphics[height=10cm]{images/hatar_12}}%
-  %\centerline{Csigolyák (borda alapján)}\medskip%
-%\end{minipage}%
-%\hspace{1cm}
-\begin{comment}
-\begin{minipage}[b]{0.4\textwidth}%
-  \centering%
-  \centerline{\includegraphics[height=10cm]{images/12}}%
-  \centerline{Csigolyák (2D összegkép alapján)}\medskip%
-\end{minipage}%
-\caption{12. eset}
-%\label{fig:hatar_12}
-\end{comment}
-\caption{Csigolyák elválasztása bordák alapján (1. eset)} \label{fig:hatar_12}
+\caption{9. eset}
 \end{figure}
 
-
-\begin{figure}[htb]%
-\centering
-\begin{minipage}[b]{0.4\textwidth}%
-  \centering%
-  \centerline{\includegraphics[height=10cm]{images/hatar_13}}%
-  %\centerline{Csigolyák (borda alapján)}\medskip%
-\end{minipage}%
-%\hspace{1cm}
-\begin{comment}
-\begin{minipage}[b]{0.4\textwidth}%
-  \centering%
-  \centerline{\includegraphics[height=10cm]{images/13}}%
-  \centerline{Csigolyák (2D összegkép alapján)}\medskip%
-\end{minipage}%
-\end{comment}
-\caption{Csigolyák elválasztása bordák alapján (2. eset)} \label{fig:hatar_13}
-%\label{fig:hatar_13}
+\begin{figure}[h]
+	\includegraphics[width=\scale\textwidth]{hatar_12}
+	\centering
+	\caption{Csigolyák közötti rések} \label{fig:hatar_12}
 \end{figure}
 
-\begin{comment}
-\begin{figure}[htb]%
-\centering
-\begin{minipage}[b]{0.4\textwidth}%
-  \centering%
-  \centerline{\includegraphics[height=10cm]{images/hatar_14}}%
-  \centerline{Csigolyák (borda alapján)}\medskip%
-\end{minipage}%
-%\hspace{1cm}
-\begin{minipage}[b]{0.4\textwidth}%
-  \centering%
-  \centerline{\includegraphics[height=10cm]{images/14}}%
-  \centerline{Csigolyák (2D összegkép alapján)}\medskip%
-\end{minipage}%
-\caption{14. eset}
-\label{fig:hatar_14}
-
+\begin{figure}[h]
+	\includegraphics[width=\scale\textwidth]{hatar_13}
+	\centering
+	\caption{Csigolyák közötti rések} \label{fig:hatar_13}
 \end{figure}
 
-\begin{figure}[htb]%
-\centering
-\begin{minipage}[b]{0.4\textwidth}%
-  \centering%
-  \centerline{\includegraphics[height=10cm]{images/hatar_39}}%
-  \centerline{Csigolyák (borda alapján)}\medskip%
-\end{minipage}%
-%\hspace{1cm}
-\begin{minipage}[b]{0.4\textwidth}%
-  \centering%
-  \centerline{\includegraphics[height=10cm]{images/39}}%
-  \centerline{Csigolyák (2D összegkép alapján)}\medskip%
-\end{minipage}%
-\caption{39. eset}
-\label{fig:hatar_39}
-
+\begin{figure}[h]
+	\includegraphics[width=\scale\textwidth]{hatar_14}
+	\centering
+	\caption{Csigolyák közötti rések} \label{fig:hatar_14}
 \end{figure}
 
-\begin{figure}[htb]%
-\centering
-\begin{minipage}[b]{0.4\textwidth}%
-  \centering%
-  \centerline{\includegraphics[height=10cm]{images/hatar_46}}%
-  \centerline{Csigolyák (borda alapján)}\medskip%
-\end{minipage}%
-%\hspace{1cm}
-\begin{minipage}[b]{0.4\textwidth}%
-  \centering%
-  \centerline{\includegraphics[height=10cm]{images/46}}%
-  \centerline{Csigolyák (2D összegkép alapján)}\medskip%
-\end{minipage}%
-\caption{46. eset}
-\label{fig:hatar_46}
-
+\begin{figure}[h]
+	\includegraphics[width=\scale\textwidth]{hatar_39}
+	\centering
+	\caption{Csigolyák közötti rések} \label{fig:hatar_39}
 \end{figure}
-\end{comment}
+
+\begin{figure}[h]
+	\includegraphics[width=\scale\textwidth]{hatar_46}
+	\centering
+	\caption{Csigolyák közötti rések} \label{fig:hatar_46}
+\end{figure}
+
 
 %\end{comment}
 \begin{comment}

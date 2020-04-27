@@ -19,13 +19,8 @@ Az így kapott eredmény lesz az adott csigolya teteje.
 Az eredményekbõl láthatjuk, hogy a csigolya határok detektálása a gerinc középsõ részén eredményezi a legkisebb hibát.
 Ez abból adódhat, hogy ezen a régión a gerinc többnyire függõleges.
 A lengõbordák segítségével történõ csigolya detektálás gyenge eredményeket szolgáltat.
-Végül ahogy haladunk felfelé a gerinc oszlopon úgy csökken a bordák közötti hely illetve a csigolyák mérete is csökken, valamint a gerinc fokozatos meghajlása is megnehezíti az optimális magasságérték meghatározását.
+Végül ahogy haladunk felfelé a gerinc oszlopon úgy csökken a bordák közötti hely illetve a csigolyák mérete is csökken, valamint a gerinc fokozatos meghajlás is megnehezíti az optimális magasságérték meghatározását.
 
-Felmerülhet, hogy a bordák bounding boxának a teteje alkalmas lehet-e a rések megtalálására.
-A kísérletek azt mutatják, hogy a fent tárgyalt módszer jobbnak bizonyul.
-Ezt annak tudhatjuk be, hogy a bordák bounding boxának a teteje nem ott helyezkedik el ahol a borda a csigolyához kapcsolódik.
-Ez a borda alakjából következik, egyes bordák a csigolyából kiindulva felfele haladnak, és késõbb indulnak meg lefelé.
-\begin{comment}
 \section{Csigolyák elválasztása 2D összegkép segítségével}
 
 E módszer alapja az a felismerés volt, hogy a 3D kép esetén több próbálkozás ellenére
@@ -54,5 +49,3 @@ alapján a nyaki csigolyák meghatározása a legbizonytalanabb, a többi régióban vi
 többnyire jó eredményt biztosít.
 A megfelelõ csigolyacimkék hozzárendelélséhez szükség van egy csigolya cimkéjé-
 nek kézi megadsára, a többi csigolya ez alapján kapja meg a cimkéket.
-
-\end{comment}

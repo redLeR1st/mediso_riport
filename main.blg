@@ -1,0 +1,62 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/W32TeX)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: main.aux
+A level-1 auxiliary file: cimoldalSzakdoga.aux
+A level-1 auxiliary file: toc.aux
+A level-1 auxiliary file: feladat.aux
+A level-1 auxiliary file: tartalmi.aux
+A level-1 auxiliary file: ct.aux
+A level-1 auxiliary file: gerincborda.aux
+A level-1 auxiliary file: irodalom.aux
+A level-1 auxiliary file: borda.aux
+A level-1 auxiliary file: csigolya.aux
+A level-1 auxiliary file: eredmenyek.aux
+A level-1 auxiliary file: tovabb.aux
+The style file: plain.bst
+A level-1 auxiliary file: nyilatkozat.aux
+A level-1 auxiliary file: koszonet.aux
+Database file #1: bib.bib
+Warning--empty school in Rew
+Warning--empty booktitle in hese
+You've used 23 entries,
+            2118 wiz_defined-function locations,
+            639 strings with 8956 characters,
+and the built_in function-call counts, 9634 in all, are:
+= -- 939
+> -- 517
+< -- 15
++ -- 209
+- -- 182
+* -- 663
+:= -- 1501
+add.period$ -- 69
+call.type$ -- 23
+change.case$ -- 154
+chr.to.int$ -- 0
+cite$ -- 25
+duplicate$ -- 371
+empty$ -- 710
+format.name$ -- 182
+if$ -- 2081
+int.to.chr$ -- 0
+int.to.str$ -- 23
+missing$ -- 17
+newline$ -- 108
+num.names$ -- 46
+pop$ -- 200
+preamble$ -- 1
+purify$ -- 136
+quote$ -- 0
+skip$ -- 325
+stack$ -- 0
+substring$ -- 537
+swap$ -- 145
+text.length$ -- 15
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 92
+warning$ -- 2
+while$ -- 84
+width$ -- 25
+write$ -- 237
+(There were 2 warnings)

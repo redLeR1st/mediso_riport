@@ -1,0 +1,143 @@
+\begin{thebibliography}{10}
+
+\bibitem{bordaanatomia}
+Bordák anatómiája: \url{https://teachmeanatomy.info/thorax/bones/ribcage}.
+
+\bibitem{banik}
+Shantanu Banik, Rangaraj~M Rangayyan, and Graham~S Boag.
+\newblock Automatic segmentation of the ribs, the vertebral column, and the
+  spinal canal in pediatric computed tomographic images.
+\newblock {\em Journal of digital imaging}, 23(3):301--322, 2010.
+
+\bibitem{Rew}
+E~Contini.
+\newblock Rib cage segmentation in ct scans.
+\newblock Master's thesis, 2014.
+
+\bibitem{ctfelipetes}
+A~CT felépítése és~mûködése:
+  \url{https://www.radiologycafe.com/radiology-trainees/frcr-physics-notes/ct-equipment}.
+
+\bibitem{furu}
+Satoru Furuhashi, Katsumi Abe, Motoichiro Takahashi, Takuya Aizawa, Takashi
+  Shizukuishi, Masakuni Sakaguchi, Toshiya Maebayashi, Ikue Tanaka, Mitsuhiro
+  Narata, and Yasuo Sasaki.
+\newblock A computer-assisted system for diagnostic workstations: automated
+  bone labeling for ct images.
+\newblock {\em Journal of digital imaging}, 22(6):689--695, 2009.
+
+\bibitem{CTHist}
+Liugang Gao, Hongfei Sun, Xinye Ni, Mingming Fang, and Tao Lin.
+\newblock Effects of 16-bit ct imaging scanning conditions for metal implants
+  on radiotherapy dose distribution.
+\newblock {\em Oncology letters}, 15(2):2373--2379, 2018.
+
+\bibitem{gargouri}
+Mariem Gargouri, Julien Tiern, Erwan Jolivet, Philippe Petit, and Elsa~D
+  Angelini.
+\newblock Accurate and robust shape descriptors for the identification of rib
+  cage structures in ct-images with random forests.
+\newblock In {\em 2013 IEEE 10th international symposium on biomedical
+  imaging}, pages 65--68. IEEE, 2013.
+
+\bibitem{kim}
+Dongsung Kim, Hanyoung Kim, and Heung~Sik Kang.
+\newblock Object-tracking segmentation method: vertebra and rib segmentation in
+  ct images.
+\newblock In {\em Medical Imaging 2002: Image Processing}, volume 4684, pages
+  1662--1671. International Society for Optics and Photonics, 2002.
+
+\bibitem{hese}
+Bianca Lassen-Schmidt, Jan-Martin Kuhnigk, Ola Friman, Stefan Krass, and
+  Heinz-Otto Peitgen.
+\newblock Automatic segmentation of lung lobes in ct images based on fissures,
+  vessels, and bronchi.
+\newblock pages 560--563, 01 2010.
+
+\bibitem{SegmOfRibs}
+Jaesung Lee and Anthony~P Reeves.
+\newblock Segmentation of individual ribs from low-dose chest ct.
+\newblock In {\em Medical Imaging 2010: Computer-Aided Diagnosis}, volume 7624,
+  page 76243J. International Society for Optics and Photonics, 2010.
+
+\bibitem{li}
+Hong Li, Jun Li, Shinong Pan, Qiyong Guo, Jiren Liu, and Yan Kang.
+\newblock Automatic rib positioning method in ct images.
+\newblock In {\em 2010 4th International Conference on Bioinformatics and
+  Biomedical Engineering}, pages 1--4. IEEE, 2010.
+
+\bibitem{otsu}
+Nobuyuki Otsu.
+\newblock A threshold selection method from gray-level histograms.
+\newblock {\em IEEE transactions on systems, man, and cybernetics},
+  9(1):62--66, 1979.
+
+\bibitem{ramakrishnan}
+Sowmya Ramakrishnan, Christopher Alvino, Leo Grady, and Atilla Kiraly.
+\newblock Automatic three-dimensional rib centerline extraction from ct scans
+  for enhanced visualization and anatomical context.
+\newblock In {\em Medical Imaging 2011: Image Processing}, volume 7962, page
+  79622X. International Society for Optics and Photonics, 2011.
+
+\bibitem{shen}
+Hong Shen, Lichen Liang, Min Shao, and Shuping Qing.
+\newblock Tracing based segmentation for the labeling of individual rib
+  structures in chest ct volume data.
+\newblock In {\em International Conference on Medical Image Computing and
+  Computer-Assisted Intervention}, pages 967--974. Springer, 2004.
+
+\bibitem{huskala}
+Hounsfield skála:
+  \url{https://regi.tankonyvtar.hu/hu/tartalom/tamop425/2011_0001_524_Radiologia/ch01.html}.
+
+\bibitem{staal}
+Joes Staal, Bram van Ginneken, and Max~A Viergever.
+\newblock Automatic rib segmentation and labeling in computed tomography scans
+  using a general framework for detection, recognition and segmentation of
+  objects in volumetric data.
+\newblock {\em Medical Image Analysis}, 11(1):35--46, 2007.
+
+\bibitem{akum}
+Hough transzformáció~körökre:
+  \url{https://www.cis.rit.edu/class/simg782.old/talkHough/HoughLecCircles.html}.
+
+\bibitem{plane}
+Vetületek:
+  \url{https://www.ipfradiologyrounds.com/hrct-primer/image-reconstruction/}.
+
+\bibitem{wu}
+Dijia Wu, David Liu, Zoltan Puskas, Chao Lu, Andreas Wimmer, Christian Tietjen,
+  Grzegorz Soza, and S~Kevin Zhou.
+\newblock A learning based deformable template matching method for automatic
+  rib centerline extraction and labeling in ct images.
+\newblock In {\em 2012 IEEE Conference on Computer Vision and Pattern
+  Recognition}, pages 980--987. IEEE, 2012.
+
+\bibitem{milstone}
+Jianhua Yao, Joseph~E Burns, Daniel Forsberg, Alexander Seitel, Abtin
+  Rasoulian, Purang Abolmaesumi, Kerstin Hammernik, Martin Urschler, Bulat
+  Ibragimov, Robert Korez, et~al.
+\newblock A multi-center milestone study of clinical vertebral ct segmentation.
+\newblock {\em Computerized Medical Imaging and Graphics}, 49:16--28, 2016.
+
+\bibitem{yao}
+Jianhua Yao, Joseph~E Burns, and Ronald~M Summers.
+\newblock Sclerotic rib metastases detection on routine ct images.
+\newblock In {\em 2012 9th IEEE International Symposium on Biomedical Imaging
+  (ISBI)}, pages 1767--1770. IEEE, 2012.
+
+\bibitem{zhang}
+Li~Zhang, Xiaodong Li, and Qingmao Hu.
+\newblock Automatic rib segmentation in chest ct volume data.
+\newblock In {\em 2012 International Conference on Biomedical Engineering and
+  Biotechnology}, pages 750--753. IEEE, 2012.
+
+\bibitem{zhou}
+Xiangrong Zhou, Tatsuro Hayashi, Mingxu Han, Huayue Chen, Takeshi Hara, Hiroshi
+  Fujita, Ryujiro Yokoyama, Masayuki Kanematsu, and Hiroaki Hoshi.
+\newblock Automated segmentation and recognition of the bone structure in
+  non-contrast torso ct images using implicit anatomical knowledge.
+\newblock In {\em Medical Imaging 2009: Image Processing}, volume 7259, page
+  72593S. International Society for Optics and Photonics, 2009.
+
+\end{thebibliography}

@@ -8,7 +8,7 @@ Az alábbi alfejezetben ezeket taglalom részletesen.
 \begin{figure}[h]
 \includegraphics{borda_fo_algoritmus.pdf}
 \centering
-\caption{Algoritmus lépései} \label{fig:alg1}
+\caption{Borda címkézõ algoritmus lépései} \label{fig:alg1}
 \end{figure}
 \section{Csont szegmentálása}
 Egy CT felvételen a levegõtõl a vízen át a csontokon keresztül a kemény implantátumokkal befejezõleg rengeteg különbözõ intenzitás fellelhetõ.
@@ -18,23 +18,21 @@ Ennek a megoldását részletezem a következõkben.
 
 \subsection{Otsu szegmentálás}
 Otsu szegmentálási módszere, olyan automatikus megoldást nyújt, mely segítségével elég csak a kép hisztogramát felhasználnunk a küszöbérték meghatározására.
-Az algoritmus lényegében azt a \textit{t} küszöbértéket keresi, amely minimalizálja az objektum és a háttér közötti varianciát.\cite{otsu}
+Az algoritmus lényegében azt a \textit{t} küszöbértéket keresi, amely minimalizálja az elõtér és a háttér közötti varianciát. \cite{otsu}
 \begin{figure}[htp]
 	
 	\includegraphics{otsu_hist.png}
 	\centering
 	\caption{Histogram és otsuval meghatározott threshold érték} \label{fig:otsu_hist}
 \end{figure}
-A módszer \aref{eq:var} képlet minimalizálásával találja meg az optimális \textit{t} küszöbértéket.
-Szemléletesen pedig \aref{fig:otsu_hist} ábrán láthatjuk ahol a piros függõleges vonal az optimális küszöbértéket jelenti.
-\begin{figure}[h]
-	\begin{equation}
-	\sigma_w^2 = \omega_0(t)\sigma_0^2 + \omega_1(t)\sigma_1^2
-	\end{equation}
-	\centering
-	\caption{Variancia képlet} \label{eq:var}
-\end{figure}
+A módszer \aref{eq:var}-es egyenlet minimalizálásával találja meg az optimális \textit{t} küszöbértéket.
+Szemléletesen pedig \aref{fig:otsu_hist} ábrán láthatjuk ahol a piros függõleges vonal az optimális küszöbértéket jelöli.
 
+\begin{equation} \label{eq:var} 
+\begin{aligned}
+\sigma_w^2 = \omega_0(t)\sigma_0^2 + \omega_1(t)\sigma_1^2
+\end{aligned}
+\end{equation}
 
 \subsection{Csont szegmentálása CT képeken}
 Otsu módszere több küszöbérték keresésére is alkalmas, CT képek esetén például egyszerû megoldást nyújt a háttér, a levegõ, a lágy szövet, és a csont elválasztására.
@@ -51,7 +49,7 @@ A hisztogramokat érdemes hasonló alakra hozni, ezt a eljárást nevezzünk normaliz
 Ennek az egyik módszere a következõ.
 Az adott kép hisztogramát 0-tót lefelé illetve 1000-tõl felfelé eldobjuk.
 Ebbe a tartományba a lágy szövetek és a csontok tartoznak bele, hogy a kettõ között pontosan hol helyezkedik el a határ az Otsu könnyedén meg fogja határozni egy darab threshold érték keresésével.
-A levágás után a hisztogram 1000 értékét 50 darab kalapban egyesítjük, ezeket a kalapokat \textit{bin}-eknek nevezzük.
+A levágás után a hisztogram 1000 értékét 50 darab "kalapban" egyesítjük, ezeket a kalapokat \textit{bin}-eknek nevezzük.
 A binek használata egyfajta simítást eredményez a képen, segít abban, hogy a különbözõ zajok kevésbé legyenek kihatással a Otsu eredményére.
 
 \section{Gerinc kijelölés}
@@ -63,12 +61,12 @@ A Hough transzformáció segítségével paraméteresen leírható objektumokat detektál
 A mi esetünkben körök detektálásáról lesz szó, de más objektumok, például egyenesek detektálására is alkalmas.
 A kör jelöltek "szavazás" segítségével állnak elõ, így több kör detektálására is alkalmas.
 
-A kör egyenlete kettõ dimenziós térben \aref{eq:kor} egyenlettel írható le.
+A kör egyenlete kettõ dimenziós térben \aref{eq:kor}-es egyenlettel írható le.
 \begin{equation} \label{eq:kor}
 (x-a)^2 + (y-b)^2 = r^2
 \end{equation}
 Az egyenletben \textit{a} és \textit{b} a kör középpontja, \textit{r} pedig a sugár.
-Ha a két dimenziós pont \textit{(x,y)} rögzítve van akkor a paraméterek \aref{eq:kor} alapján megtalálhatóak.
+Ha a két dimenziós pont \textit{(x,y)} rögzítve van akkor a paraméterek \aref{eq:kor}-es egyenlet alapján megtalálhatóak.
 A paramétertér tehát három-dimenziós \textit{(a, b, r)}, de a könnyebb szemléltetés érdekében rögzítsük a sugarat, \textit{r}-t.
 Ezzel a paraméterterünk kétdimenziósra csökken, de csak meghatározott sugarú körök keresésére leszünk képesek.
 
@@ -85,7 +83,7 @@ Különbözõ sugarú köröket is detektálhatunk e módszer segítségével, ekkor az \tex
 \begin{figure}[!tbp]
 \centering
 	\includegraphics[width=0.5\textwidth]{hough_kor}
-	\caption{Kép és akkumulátor kép} \label{fig:hough}
+	\caption{Kép és akkumulátor kép \cite{akum}} \label{fig:hough}
 \end{figure}
 
 
@@ -94,9 +92,10 @@ A gerinc kijelölésének algoritmusa egy egyszerû észrevételen alapszik, miszerint
 nézve kör alakú.
 A szegmentált kép axiális szeletein keressünk kör, illetve kör alakú objektumot a Hough transzformáció segítségével.
 A talált körök nagy valószínûséggel a gerincre fognak esni, mivel az axiális vetületeken kevés más hasonló méretû kör alakú objektum látható.
-Az algoritmus eredménye \aref{fig:korrig_0_60} ábrán látható.
+Az algoritmus eredménye \aref{fig:korrig_0_58} ábrán látható.
+%Az algoritmus eredménye \aref{fig:korrig_0_60} ábrán látható.
 \subsection{Körök helyzetének korrigálása}
-Elõfordulhat azonban, hogy a keresést zaj, kevés csont vagy más körlakú objektumok (például aorta) jelenléte nehezíti meg.
+Elõfordulhat azonban, hogy a keresést zaj, kevés csont vagy más kör alakú objektumok (például aorta) jelenléte nehezíti meg.
 A Hough transzformáció segítségével több kör detektálására is képesek vagyunk egy képen.
 Ezeket a köröket sorba rendezhetjük aszerint, hogy mennyire valószínû, hogy valóban körrõl van szó.
 Szeletenként az elsõ helyen álló kör a legvalószínûbb, hogy csigolyára esik ezt vehetjük alapul.
@@ -106,7 +105,8 @@ Mivel az elején feltettük hogy az elsõnek választott körök többnyire jó helyen v
 
 Ha az átlagtól nagyban eltérõ kört találunk, haladjunk végig a Hough transzformáció által nyújtott további körök listáján és helyettesítsük a kiugró kört egy olyan körrel, ami legközelebb van az átlaghoz a listában.
 Ezt a megoldást nevezhetjük elsõ korrekciós lépésnek.
-Az algoritmus eredménye \aref{fig:korrig_1_60} ábrán látható.
+Az algoritmus eredménye \aref{fig:korrig_1_58} ábrán látható.
+%Az algoritmus eredménye \aref{fig:korrig_1_60} ábrán látható.
 \begin{comment}
 \begin{figure}[h]
 	\includegraphics{korrig_1_60}
@@ -121,7 +121,9 @@ Ebben az esetben a Hough transzformáció aligha fog megfelelõ pozíciójú kört talá
 Ennek a problémának a megoldására szolgál az úgynevezett második korrekciós lépés, mely szerint lokálisan, a körnek meghatározott számú szomszédjából számolunk átlag/medián pozíciót.
 A rossz helyen lévõ kört ezzel kiszámolt értékkel helyettesítjük.
 A módszer átlagoló/medián szûrõhöz hasonló elven mûködik.
-Az algoritmus eredménye \aref{fig:korrig_2_60} ábrán látható.
+Az algoritmus eredménye \aref{fig:korrig_2_58} ábrán látható.
+%Az algoritmus eredménye \aref{fig:korrig_2_60} ábrán látható.
+
 \begin{comment}
 \begin{figure}[h]
 	\includegraphics{korrig_2_60}
@@ -134,7 +136,7 @@ Az algoritmus eredménye \aref{fig:korrig_2_60} ábrán látható.
 	\centering
 	\caption{Gerinckijelölés lépései} \label{fig:gerinc_ki}
 \end{figure}
-
+\begin{comment}
 \begin{figure}[!tbp]
 	\centering
 	\begin{minipage}[b]{0.3\textwidth}
@@ -172,29 +174,29 @@ Az algoritmus eredménye \aref{fig:korrig_2_60} ábrán látható.
 		\caption{Második korrig}
 	\end{minipage}
 \end{figure}
-
+\end{comment}
 %------------------------------------------------------------
 
 \begin{figure}[!tbp]
 	\centering
 	\begin{minipage}[b]{0.3\textwidth}
 		\includegraphics[width=\textwidth]{korrig_0_58}
-		\caption{Korrigálatlan}
+		\caption{Korrigálatlan} \label{fig:korrig_0_58}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[b]{0.3\textwidth}
 		\includegraphics[width=\textwidth]{korrig_1_58}
-		\caption{Elsõ korrigálás}
+		\caption{Elsõ korrigálás} \label{fig:korrig_1_58}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[b]{0.3\textwidth}
 		\includegraphics[width=\textwidth]{korrig_2_58}
-		\caption{Második korrig}
+		\caption{Második korrig} \label{fig:korrig_2_58}
 	\end{minipage}
 \end{figure}
 
 %------------------------------------------------------------
-
+\begin{comment}
 \begin{figure}[!tbp]
 	\centering
 	\begin{minipage}[b]{0.3\textwidth}
@@ -212,7 +214,7 @@ Az algoritmus eredménye \aref{fig:korrig_2_60} ábrán látható.
 		\caption{Második korrig}
 	\end{minipage}
 \end{figure}
-
+\end{comment}
 %------------------------------------------------------------
 
 \begin{figure}[!tbp]
@@ -267,7 +269,7 @@ Például egy lapocka esetében a sajátértékek aránya \aref{fig:sajat_ert} ábrán az
 
 \begin{figure}[h]
 	\includegraphics[width=\textwidth]{hese_eig}
-	\caption{Különbözõ objektumok sajátértékei} \label{fig:sajat_ert}
+	\caption{Különbözõ objektumok sajátértékei \cite{hese}} \label{fig:sajat_ert}
 \end{figure}
 
 \section{Bordák címkézés újranövesztéssel}
@@ -275,14 +277,14 @@ A nem bordaalakú objektumok eltávolítása után következhet, a bordák megfelelõ so
 Az összefüggõ komponensek algoritmusa definiálhat egy címkézést, de nem veszi figyelembe a bordák anatómiai sorrendjét.
 
 Az címkézõ algoritmus bemenete csak a bordákat tartalmazza, mivel az elõzõ lépésben eltávolítottuk az egyéb objektumokat, de fontos, hogy a bordáknak külön címkéjük legyen, vagyis külön objektumként jelenjenek meg, ezt a régiónövelés tudja biztosítani.
-A keresés ugyan olyan módszerrel történik, mint az 1.3-as fejezetben leírt magpont meghatározás, azzal a különbséggel, hogy itt már biztosak lehetünk benne, hogy csak bordák fordulhatnak elõ.
+A keresés ugyan olyan módszerrel történik, mint az 4.3-as fejezetben leírt magpont meghatározás, azzal a különbséggel, hogy itt már biztosak lehetünk benne, hogy csak bordák fordulhatnak elõ.
 A keresés során nyilvántartunk egy számlálót.
 E számláló értékét fogjuk az adott bordához rendelni.
 Az axiális szeleteken végighaladunk és, valahányszor objektumba, vagyis bordába, ütközünk, annak az eredeti címkéjét átírjuk a számláló értékére, majd növeljük azt.
 
 \section{Bordák címkézés bounding boxal}
 Az újra növesztéses módszer nem túl hatékony, hiszen rengeteg régiónövelést tartalmaz, amit már egyszer különben is végrehajtott az algoritmus, egy elõzõ lépésben.
-Az elõzõ fejezetben is említésre került, hogy definiálva van egy anatómiailag helytelen címkézése.
+Az elõzõ alfejezetben is említésre került, hogy a régiónövelés definiál egy anatómiailag helytelen címkézését.
 Ebben a módszerben nem növesztjük újra a bordákat, hanem az objektumokhoz tartozó címkéket módosítjuk.
 A módszer a következõ: határozzuk meg az objektumok bounding boxát.
 Az objektumok címkéjét rendezzük sorba a bounding boxok tetejének a magassága alapján.

@@ -2,13 +2,16 @@
 
 \chapter{Számítógépes tomográfia}
 
-A számítógépes tomográfia vagy CT (Computed Tomography) az orvosi képalkotás egyik területe, mely adott tárgyról vagy páciensrõl különbözõ szögekbõl besugárzott röntgen sugarak mérési eredményeit felhasználva készít keresztmetszeti képeket. A képe az objektum egy-egy szeletét ábrázolja. Ezeket a szeleteket összerakva három dimenziós képet kapunk.
+A számítógépes tomográfia vagy CT (Computed Tomography) az orvosi képalkotás egyik területe, mely adott tárgyról vagy páciensrõl különbözõ szögekbõl besugárzott röntgen sugarak mérési eredményeit felhasználva készít keresztmetszeti képeket.
+A képek az objektum egy-egy szeletét ábrázolják.
+Ezeket a szeleteket összerakva három dimenziós képet kapunk.
 
-Az eljárás során vékony röntgen sugárral világítjuk át az objektumot.
+%Az eljárás során vékony röntgen sugárral világítjuk át az objektumot.
 
 \section{A CT felépítése}
 
-A CT felépítését \aref{fig:ct} ábra szemlélteti. \cite{ctfelipetes}
+A CT felépítését \aref{fig:ct} ábra szemlélteti.
+%\cite{ctfelipetes}
 
 \begin{figure}[h]
 	\includegraphics[width=0.6\textwidth]{ct_hun}
@@ -26,22 +29,24 @@ A szûrõ után következik az úgynevezett kollimátor, mely a szétszóródó sugarak fe
 
 Az így módosított sugarak keresztülhaladnak a páciens szövetein.
 A szövetek keménységtõl függõen különbözõ mértékben nyelik el, illetve eresztik át a sugárzást.
-A detektorok azt mérik, hogy milyen mértékû ez az elnyelõdés vagy áteresztés.
+A detektorok az elnyelõdés vagy áteresztés mértékét rögzítik.
 
-
+Orvosi CT felvételek készítésénél fontos szempont, hogy a páciens minél kisebb dózisban kapjon sugárzást.
+Az alacsonyabb dózis rosszabb képminõséget eredményez, de egyes vizsgálatokhoz a gyengébb kép is megfelelõen használható.
+Az újabb rekonstrukciós algoritmusok segítségével egyre kisebb dózist felhasználva is elérhetõ a vizsgálatokhoz szükséges képminõség.
 
 \section{Rekonstrukció}
 
-A CT mérési eredményeit felírhatjuk egy táblázatba, ahol az oszlopok az elfordulás szögét, a sorok pedig a vetítõsugár sorszámát reprezentálják.
-A táblázat értékei pedig az adott sugár, bizonyos szögû elfordulásnál mért intenzitásai.
-Ezt a táblázatot szinogramnak nevezzük.
+A CT mérési eredményeit felírhatjuk egy táblázatba, ahol az oszlopok a vetítõsugár elfordulási szögét, a sorok pedig a vetítõsugár sorszámát reprezentálják.
+A táblázat értékei pedig az adott sugár, bizonyos szögû elfordulásnál mért elnyelõdései.
+Ezt a táblázatot nevezzük szinogramnak.
 
-Rekonstrukciónak nevezzük azt az eljárást, amikor a elõállítjuk az objektum képét annak vetületi információi alapján, vagyis a szinogram alapján.
+Rekonstrukciónak nevezzük azt az eljárást, amikor elõállítjuk az objektum képét annak vetületi információi alapján, vagyis a szinogram alapján.
 
 \Aref{fig:matrix} ábrán egy 5x5 ös négyzetet láthatunk.
 A négyzet tartalmazza az adott pixel intenzitását, más néven áteresztõképességét, és jobb alsó indexben a pixel azonosítóját.
 Ha a szeletet különbözõ irányból besugározzuk, akkor a nyilak végén látható összegzett értékeket mérhetjük.
-A mért értékek alapján felírhatjuk \aref{eq:rek} egyenletet.
+A mért értékek alapján felírhatjuk \aref{eq:rek}-es egyenletrendszert.
 
 
 \begin{equation} \label{eq:rek} 
@@ -54,7 +59,6 @@ A mért értékek alapján felírhatjuk \aref{eq:rek} egyenletet.
 
 Ha további szögekbõl folytatjuk a besugárzást, akkor több egyenletet kapunk.
 Megfelelõ számú egyenlet segítségével (a példában 25) rekonstruálhatjuk az eredeti mátrixot.
-
 A valóságban egy szelet rekonstruálásához több százezer ismeretlent kell meghatározni több százezer egyenletbõl.
 Egy sorozat pedig rengeteg szeletbõl állhat.
 
@@ -65,7 +69,45 @@ Egy sorozat pedig rengeteg szeletbõl állhat.
 \end{figure}
 
 
+\section{Orvosi képek jellemzõi}
 
+Az orvosi képeket tipikusan DICOM formátumban kerülnek elmentésre.
+E formátum segítségével minden szelet külön fájlba kerül, mely fájl a képi intenzitásokon kívül tartalmazhat számtalan kiegészítõ információkat, mint például a páciens nevét, a vizsgálat idõpontját, de akár még az orvos által írt diagnózis is eltárolható.
+Az ilyen képek megjelenítésére speciális program szükséges, mely tudja kezelni ezt a formátumot.
+
+%A Hounsfield  skála
+A CT felvétel 3D-s pixelekbõl, azaz voxelekbõl tevõdik össze.
+A voxelek hordozzák a képi információt, melyeket Hounsfield egységekben mérünk.
+Ez a mértékegység a különbözõ anyagok sugárelnyelõ képességét számszerûsíti a vízhez viszonyítva.
+A Hounsfield értékekbõl következtethetünk a szövet típusára.
+A különbözõ szervek sugárelnyelõ képességét \aref{fig:huskala} ábra szemlélteti.
+
+\begin{figure}[t]
+	\includegraphics[width=\textwidth]{huskala}
+	\centering
+	\caption{Hounsfield skála az emberi test szöveteivel \cite{huskala}} \label{fig:huskala}
+\end{figure}
+
+
+A háromdimenziós CT felvételeket a kétdimenziós kijelzõn különbözõ nézetekbõl jeleníthetõk meg.
+Ehhez definiálunk három egymásra merõleges síkot.
+Az axiális sík a fejet és a lábakat választja el.
+A koronális sík a test eleje és hátulja között helyezkedik el.
+Végül a szagittális sík jobb és bal oldalra osztja a testet.
+E síkok tetszõlegesen eltolhatók a hozzájuk tartozó merõleges mentén.
+Az elhelyezkedésüket \aref{fig:plane} ábra szemlélteti.
+
+\begin{figure}[h]
+	\includegraphics[width=0.5\textwidth]{plane}
+	\centering
+	\caption{Különbözõ síkok elhelyezkedései és  elnevezései \cite{plane}} \label{fig:plane}
+\end{figure}
+
+
+%Sajnos ebbõl nem tudjuk egyértelmûen meghatározni, hogy egy-egy voxel pontosan melyik szervhez tartozik, de a Hounsfield skála alapján jól 
+
+%Egy voxel értéke az adott régió sûrûségétõl függõen bármekkora lehet.
+%Egy vizsgálat körülbelül -1000 és 3000 közötti értékeket detektálunk
 
 
 
