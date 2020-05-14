@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.2.10)  27 APR 2020 13:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.2.10)  14 MAY 2020 18:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -930,9 +930,9 @@ File: lipsum.ltd.tex 2019/01/02 v2.2 The Lorem ipsum dummy text
 ))
 \c@tét=\count314
  (./main.aux
-(./cimoldalSzakdoga.aux) (./toc.aux) (./feladat.aux) (./tartalmi.aux) (./ct.aux
-) (./gerincborda.aux) (./irodalom.aux) (./borda.aux) (./csigolya.aux)
-(./eredmenyek.aux
+(./cimoldalSzakdoga.aux) (./feladat.aux) (./tartalmi.aux) (./toc.aux)
+(./motivacio.aux) (./ct.aux) (./gerincborda.aux) (./irodalom.aux)
+(./technology.aux) (./borda.aux) (./csigolya.aux) (./eredmenyek.aux
 
 LaTeX Warning: Label `fig:korrig_1_1' multiply defined.
 
@@ -1060,16 +1060,29 @@ Non-PDF special ignored!
 
 
 {c:/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+\openout2 = `feladat.aux'.
+
+ (./feladat.tex
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 6.
+) [2
+
+
+
+]
+\openout2 = `tartalmi.aux'.
+
+ (./tartalmi.tex) [3
+
+
+
+]
 \openout2 = `toc.aux'.
 
- (./toc.tex
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 4.
-
-(./main.toc
+ (./toc.tex (./main.toc
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 3.
- [2
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 4.
+ [4
 
 
 
@@ -1077,17 +1090,11 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
-) [3]
-\openout2 = `feladat.aux'.
+) [5]
+\openout2 = `motivacio.aux'.
 
- (./feladat.tex) [4
-
-
-
-]
-\openout2 = `tartalmi.aux'.
-
- (./tartalmi.tex) [5
+ (./motivacio.tex)
+[6
 
 
 
@@ -1096,17 +1103,17 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 
  (./ct.tex
 1. fejezet.
-<./images/ct_hun.png, id=244, 301.125pt x 221.32687pt>
+<./images/ct_hun.png, id=285, 301.125pt x 221.32687pt>
 File: ./images/ct_hun.png Graphic file (type png)
 <use ./images/ct_hun.png>
 Package pdftex.def Info: ./images/ct_hun.png  used on input line 17.
 (pdftex.def)             Requested size: 256.0774pt x 188.2334pt.
-[6
+[7
 
 
 
- <./images/ct_hun.png>] [7]
-<./images/matrix.png, id=264, 636.12656pt x 645.16031pt>
+ <./images/ct_hun.png>] [8]
+<./images/matrix.png, id=305, 636.12656pt x 645.16031pt>
 File: ./images/matrix.png Graphic file (type png)
 <use ./images/matrix.png>
 Package pdftex.def Info: ./images/matrix.png  used on input line 66.
@@ -1116,29 +1123,29 @@ Package pdftex.def Info: ./images/matrix.png  used on input line 66.
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\H' on input line 72.
 
-[8 <./images/matrix.png>]
-<./images/huskala.png, id=274, 429.10312pt x 225.84375pt>
+[9 <./images/matrix.png>]
+<./images/huskala.png, id=315, 429.10312pt x 225.84375pt>
 File: ./images/huskala.png Graphic file (type png)
 <use ./images/huskala.png>
 Package pdftex.def Info: ./images/huskala.png  used on input line 86.
 (pdftex.def)             Requested size: 426.79134pt x 224.63016pt.
-<./images/plane.png, id=278, 636.12656pt x 551.81157pt>
+<./images/plane.png, id=319, 636.12656pt x 551.81157pt>
 File: ./images/plane.png Graphic file (type png)
 <use ./images/plane.png>
 Package pdftex.def Info: ./images/plane.png  used on input line 101.
 (pdftex.def)             Requested size: 213.39566pt x 185.10431pt.
-) [9 <./images/huskala.png> <./images/plane.png>]
+) [10 <./images/huskala.png> <./images/plane.png>]
 \openout2 = `gerincborda.aux'.
 
 
 (./gerincborda.tex
 2. fejezet.
-<./images/gerinc.png, id=291, 233.87375pt x 803.0pt>
+<./images/gerinc.png, id=332, 233.87375pt x 803.0pt>
 File: ./images/gerinc.png Graphic file (type png)
 <use ./images/gerinc.png>
 Package pdftex.def Info: ./images/gerinc.png  used on input line 7.
 (pdftex.def)             Requested size: 106.69783pt x 366.3458pt.
-<./images/borda-csig.jpg, id=295, 389.95688pt x 301.125pt>
+<./images/borda-csig.jpg, id=336, 389.95688pt x 301.125pt>
 File: ./images/borda-csig.jpg Graphic file (type jpg)
 <use ./images/borda-csig.jpg>
 Package pdftex.def Info: ./images/borda-csig.jpg  used on input line 26.
@@ -1146,7 +1153,7 @@ Package pdftex.def Info: ./images/borda-csig.jpg  used on input line 26.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./images/bordak.jpg, id=298, 588.69937pt x 454.69875pt>
+<./images/bordak.jpg, id=339, 588.69937pt x 454.69875pt>
 File: ./images/bordak.jpg Graphic file (type jpg)
 <use ./images/bordak.jpg>
 Package pdftex.def Info: ./images/bordak.jpg  used on input line 32.
@@ -1154,11 +1161,11 @@ Package pdftex.def Info: ./images/bordak.jpg  used on input line 32.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [10
+) [11
 
 
 
- <./images/gerinc.png (PNG copy)>] [11 <./images/borda-csig.jpg> <./images/bord
+ <./images/gerinc.png (PNG copy)>] [12 <./images/borda-csig.jpg> <./images/bord
 ak.jpg>]
 \openout2 = `irodalom.aux'.
 
@@ -1168,36 +1175,50 @@ ak.jpg>]
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\@ifnextchar' on input line 10.
 
-[12
+[13
 
 
 
-] [13]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 75.
-
-[14] [15]
+] [14]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 197.
+(hyperref)                removing `\@ifnextchar' on input line 77.
+
+[15] [16]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ifnextchar' on input line 194.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\H' on input line 197.
+(hyperref)                removing `\H' on input line 194.
 
-[16]) [17]
+[17] [18]) [19]
+\openout2 = `technology.aux'.
+
+ (./technology.tex
+4. fejezet.
+[20
+
+
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ifnextchar' on input line 32.
+
+) [21]
 \openout2 = `borda.aux'.
 
  (./borda.tex
-4. fejezet.
-<./images/borda_fo_algoritmus.pdf, id=370, 355.3275pt x 355.3275pt>
+5. fejezet.
+<./images/borda_fo_algoritmus.pdf, id=435, 355.3275pt x 355.3275pt>
 File: ./images/borda_fo_algoritmus.pdf Graphic file (type pdf)
 <use ./images/borda_fo_algoritmus.pdf>
 Package pdftex.def Info: ./images/borda_fo_algoritmus.pdf  used on input line 9
 .
 (pdftex.def)             Requested size: 355.32661pt x 355.32661pt.
-[18
+[22
 
 
 
@@ -1207,90 +1228,90 @@ pdfTeX warning: pdflatex.exe (file ./images/borda_fo_algoritmus.pdf): PDF inclu
 sion: invalid other resource which is no dict (key 'ProcSets', type <array>); i
 gnored.
 >]
-<./images/otsu_hist.png, id=386, 298.11375pt x 143.03438pt>
+<./images/otsu_hist.png, id=451, 298.11375pt x 143.03438pt>
 File: ./images/otsu_hist.png Graphic file (type png)
 <use ./images/otsu_hist.png>
 Package pdftex.def Info: ./images/otsu_hist.png  used on input line 24.
 (pdftex.def)             Requested size: 298.11302pt x 143.03401pt.
- [19 <./images/otsu_hist.png>] [20]
-<./images/hough_kor.png, id=410, 738.50906pt x 390.70969pt>
+ [23 <./images/otsu_hist.png>] [24]
+<./images/hough_kor.png, id=475, 738.50906pt x 390.70969pt>
 File: ./images/hough_kor.png Graphic file (type png)
 <use ./images/hough_kor.png>
-Package pdftex.def Info: ./images/hough_kor.png  used on input line 85.
+Package pdftex.def Info: ./images/hough_kor.png  used on input line 84.
 (pdftex.def)             Requested size: 213.39566pt x 112.8975pt.
- [21 <./images/hough_kor.png>]
-<./images/gerinc_kinyeres.pdf, id=424, 327.14218pt x 277.035pt>
-File: ./images/gerinc_kinyeres.pdf Graphic file (type pdf)
-<use ./images/gerinc_kinyeres.pdf>
-Package pdftex.def Info: ./images/gerinc_kinyeres.pdf  used on input line 135.
-(pdftex.def)             Requested size: 327.14137pt x 277.03432pt.
+ [25 <./images/hough_kor.png>]
+<./images/gerinc_kinyeres.png, id=491, 934.24031pt x 791.20593pt>
+File: ./images/gerinc_kinyeres.png Graphic file (type png)
+<use ./images/gerinc_kinyeres.png>
+Package pdftex.def Info: ./images/gerinc_kinyeres.png  used on input line 134.
+(pdftex.def)             Requested size: 426.79134pt x 361.448pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./images/korrig_0_58.png, id=425, 207.77625pt x 328.22626pt>
+<./images/korrig_0_58.png, id=492, 207.77625pt x 328.22626pt>
 File: ./images/korrig_0_58.png Graphic file (type png)
 <use ./images/korrig_0_58.png>
-Package pdftex.def Info: ./images/korrig_0_58.png  used on input line 183.
+Package pdftex.def Info: ./images/korrig_0_58.png  used on input line 182.
 (pdftex.def)             Requested size: 128.0387pt x 202.27113pt.
-<./images/korrig_1_58.png, id=426, 208.52907pt x 328.97906pt>
+<./images/korrig_1_58.png, id=493, 208.52907pt x 328.97906pt>
 File: ./images/korrig_1_58.png Graphic file (type png)
 <use ./images/korrig_1_58.png>
-Package pdftex.def Info: ./images/korrig_1_58.png  used on input line 188.
+Package pdftex.def Info: ./images/korrig_1_58.png  used on input line 187.
 (pdftex.def)             Requested size: 128.0387pt x 202.00717pt.
-<./images/korrig_2_58.png, id=427, 207.77625pt x 326.72063pt>
+<./images/korrig_2_58.png, id=494, 207.77625pt x 326.72063pt>
 File: ./images/korrig_2_58.png Graphic file (type png)
 <use ./images/korrig_2_58.png>
-Package pdftex.def Info: ./images/korrig_2_58.png  used on input line 193.
+Package pdftex.def Info: ./images/korrig_2_58.png  used on input line 192.
 (pdftex.def)             Requested size: 128.0387pt x 201.34328pt.
-<./images/korrig_0_56.png, id=428, 208.52907pt x 347.79938pt>
+<./images/korrig_0_56.png, id=495, 208.52907pt x 347.79938pt>
 File: ./images/korrig_0_56.png Graphic file (type png)
 <use ./images/korrig_0_56.png>
-Package pdftex.def Info: ./images/korrig_0_56.png  used on input line 223.
+Package pdftex.def Info: ./images/korrig_0_56.png  used on input line 222.
 (pdftex.def)             Requested size: 128.0387pt x 213.56366pt.
-<./images/korrig_1_56.png, id=429, 209.28188pt x 347.79938pt>
+<./images/korrig_1_56.png, id=496, 209.28188pt x 347.79938pt>
 File: ./images/korrig_1_56.png Graphic file (type png)
 <use ./images/korrig_1_56.png>
-Package pdftex.def Info: ./images/korrig_1_56.png  used on input line 228.
+Package pdftex.def Info: ./images/korrig_1_56.png  used on input line 227.
 (pdftex.def)             Requested size: 128.0387pt x 212.78352pt.
-<./images/korrig_2_56.png, id=430, 207.77625pt x 346.29375pt>
+<./images/korrig_2_56.png, id=497, 207.77625pt x 346.29375pt>
 File: ./images/korrig_2_56.png Graphic file (type png)
 <use ./images/korrig_2_56.png>
-Package pdftex.def Info: ./images/korrig_2_56.png  used on input line 233.
+Package pdftex.def Info: ./images/korrig_2_56.png  used on input line 232.
 (pdftex.def)             Requested size: 128.0387pt x 213.40532pt.
-[22] [23 <./images/gerinc_kinyeres.pdf
+[26]
 
-pdfTeX warning: pdflatex.exe (file ./images/gerinc_kinyeres.pdf): PDF inclusion
-: invalid other resource which is no dict (key 'ProcSets', type <array>); ignor
-ed.
-> <./images/korrig_0_58.png> <./images/korrig_1_58.png> <./images/korrig_2_58.p
-ng>] [24 <./images/korrig_0_56.png> <./images/korrig_1_56.png> <./images/korrig
-_2_56.png>]
-<./images/hese_eig.png, id=463, 637.63219pt x 294.34969pt>
+LaTeX Warning: Text page 27 contains only floats.
+
+[27 <./images/gerinc_kinyeres.png> <./images/korrig_0_58.png> <./images/korrig_
+1_58.png> <./images/korrig_2_58.png>] [28 <./images/korrig_0_56.png> <./images/
+korrig_1_56.png> <./images/korrig_2_56.png>]
+<./images/hese_eig.png, id=521, 637.63219pt x 294.34969pt>
 File: ./images/hese_eig.png Graphic file (type png)
 <use ./images/hese_eig.png>
-Package pdftex.def Info: ./images/hese_eig.png  used on input line 271.
+Package pdftex.def Info: ./images/hese_eig.png  used on input line 270.
 (pdftex.def)             Requested size: 426.79134pt x 197.02013pt.
- [25 <./images/hese_eig.png>]) [26]
+ [29 <./images/hese_eig.png>])
+[30]
 \openout2 = `csigolya.aux'.
 
  (./csigolya.tex
-5. fejezet.
-[27
+6. fejezet.
+[31
 
 
 
-]) [28]
+]) [32]
 \openout2 = `eredmenyek.aux'.
 
  (./eredmenyek.tex
-6. fejezet.
+7. fejezet.
 
 Overfull \hbox (24.16075pt too wide) in paragraph at lines 18--24
 [][] 
  []
 
-[29
+[33
 
 
 
@@ -1304,7 +1325,7 @@ Overfull \hbox (3.08447pt too wide) in paragraph at lines 41--46
 [][] 
  []
 
-<./images/ver_hiba.png, id=494, 454.69875pt x 264.23718pt>
+<./images/ver_hiba.png, id=553, 454.69875pt x 264.23718pt>
 File: ./images/ver_hiba.png Graphic file (type png)
 <use ./images/ver_hiba.png>
 Package pdftex.def Info: ./images/ver_hiba.png  used on input line 51.
@@ -1319,13 +1340,13 @@ bor-
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\H' on input line 82.
 
-[30 <./images/ver_hiba.png>]
-<./images/csont_1_7.png, id=501, 726.46407pt x 444.91219pt>
+[34 <./images/ver_hiba.png>]
+<./images/csont_1_7.png, id=560, 726.46407pt x 444.91219pt>
 File: ./images/csont_1_7.png Graphic file (type png)
 <use ./images/csont_1_7.png>
 Package pdftex.def Info: ./images/csont_1_7.png  used on input line 100.
 (pdftex.def)             Requested size: 298.75262pt x 182.97185pt.
-<./images/gerinc_2_7.png, id=502, 726.46407pt x 446.41782pt>
+<./images/gerinc_2_7.png, id=561, 726.46407pt x 446.41782pt>
 File: ./images/gerinc_2_7.png Graphic file (type png)
 <use ./images/gerinc_2_7.png>
 Package pdftex.def Info: ./images/gerinc_2_7.png  used on input line 105.
@@ -1334,7 +1355,7 @@ Package pdftex.def Info: ./images/gerinc_2_7.png  used on input line 105.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./images/szeg_3_7.png, id=503, 727.96968pt x 442.65375pt>
+<./images/szeg_3_7.png, id=562, 727.96968pt x 442.65375pt>
 File: ./images/szeg_3_7.png Graphic file (type png)
 <use ./images/szeg_3_7.png>
 Package pdftex.def Info: ./images/szeg_3_7.png  used on input line 110.
@@ -1342,7 +1363,7 @@ Package pdftex.def Info: ./images/szeg_3_7.png  used on input line 110.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./images/csont_1_11.png, id=504, 727.96968pt x 446.41782pt>
+<./images/csont_1_11.png, id=563, 727.96968pt x 446.41782pt>
 File: ./images/csont_1_11.png Graphic file (type png)
 <use ./images/csont_1_11.png>
 Package pdftex.def Info: ./images/csont_1_11.png  used on input line 119.
@@ -1350,7 +1371,7 @@ Package pdftex.def Info: ./images/csont_1_11.png  used on input line 119.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./images/gerinc_2_11.png, id=505, 725.71124pt x 443.40656pt>
+<./images/gerinc_2_11.png, id=564, 725.71124pt x 443.40656pt>
 File: ./images/gerinc_2_11.png Graphic file (type png)
 <use ./images/gerinc_2_11.png>
 Package pdftex.def Info: ./images/gerinc_2_11.png  used on input line 124.
@@ -1358,7 +1379,7 @@ Package pdftex.def Info: ./images/gerinc_2_11.png  used on input line 124.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./images/szeg_3_11.png, id=506, 729.47531pt x 446.41782pt>
+<./images/szeg_3_11.png, id=565, 729.47531pt x 446.41782pt>
 File: ./images/szeg_3_11.png Graphic file (type png)
 <use ./images/szeg_3_11.png>
 Package pdftex.def Info: ./images/szeg_3_11.png  used on input line 129.
@@ -1376,25 +1397,25 @@ csi-
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\H' on input line 274.
 
-[31 <./images/csont_1_7.png>]
-<images/hatar_12.png, id=518, 237.88875pt x 362.85562pt>
+[35 <./images/csont_1_7.png>]
+<images/hatar_12.png, id=576, 237.88875pt x 362.85562pt>
 File: images/hatar_12.png Graphic file (type png)
 <use images/hatar_12.png>
 Package pdftex.def Info: images/hatar_12.png  used on input line 309.
 (pdftex.def)             Requested size: 186.5398pt x 284.52756pt.
-<images/hatar_13.png, id=519, 253.69781pt x 381.67593pt>
+<images/hatar_13.png, id=577, 253.69781pt x 381.67593pt>
 File: images/hatar_13.png Graphic file (type png)
 <use images/hatar_13.png>
 Package pdftex.def Info: images/hatar_13.png  used on input line 330.
 (pdftex.def)             Requested size: 189.1309pt x 284.52756pt.
-) [32 <./images/gerinc_2_7.png> <./images/szeg_3_7.png>] [33 <./images/csont_1_
-11.png> <./images/gerinc_2_11.png> <./images/szeg_3_11.png>] [34 <./images/hata
+) [36 <./images/gerinc_2_7.png> <./images/szeg_3_7.png>] [37 <./images/csont_1_
+11.png> <./images/gerinc_2_11.png> <./images/szeg_3_11.png>] [38 <./images/hata
 r_12.png> <./images/hatar_13.png>]
 \openout2 = `tovabb.aux'.
 
  (./tovabb.tex
-7. fejezet.
-) [35
+8. fejezet.
+) [39
 
 
 
@@ -1403,11 +1424,17 @@ LaTeX Font Info:    Try loading font information for T1+pcr on input line 4.
  (c:/texlive/2019/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-[36
+Underfull \hbox (badness 10000) in paragraph at lines 18--20
+[]\T1/ptm/m/n/10.95 A dol-go-zat té-má-ját meg-va-ló-sí-tó al-go-rit-mus for-rá
+s-kód-ja: []$\T1/pcr/m/n/10.95 https : \OML/cmm/m/it/10.95 ==\T1/pcr/m/n/10.95 
+github .
+ []
+
+[40
 
 
 ]
-Overfull \hbox (24.39882pt too wide) in paragraph at lines 90--92
+Overfull \hbox (24.39882pt too wide) in paragraph at lines 106--108
 []\T1/ptm/m/n/10.95 Hounsfield ská-la: []$\T1/pcr/m/n/10.95 https : \OML/cmm/m/
 it/10.95 ==\T1/pcr/m/n/10.95 regi . tankonyvtar . hu\OML/cmm/m/it/10.95 =\T1/pc
 r/m/n/10.95 hu\OML/cmm/m/it/10.95 =\T1/pcr/m/n/10.95 tartalom\OML/cmm/m/it/10.9
@@ -1415,7 +1442,7 @@ r/m/n/10.95 hu\OML/cmm/m/it/10.95 =\T1/pcr/m/n/10.95 tartalom\OML/cmm/m/it/10.9
  []
 
 
-Underfull \hbox (badness 3098) in paragraph at lines 101--103
+Underfull \hbox (badness 3098) in paragraph at lines 122--124
 []\T1/ptm/m/n/10.95 Hough transz-for-má-ció kö-rök-re: []$\T1/pcr/m/n/10.95 htt
 ps : \OML/cmm/m/it/10.95 ==\T1/pcr/m/n/10.95 www . cis . rit . edu\OML/cmm/m/it
 /10.95 =\T1/pcr/m/n/10.95 class\OML/cmm/m/it/10.95 =\T1/pcr/m/n/10.95 simg782 .
@@ -1423,51 +1450,52 @@ ps : \OML/cmm/m/it/10.95 ==\T1/pcr/m/n/10.95 www . cis . rit . edu\OML/cmm/m/it
  []
 
 
-Underfull \hbox (badness 6758) in paragraph at lines 105--107
+Underfull \hbox (badness 6758) in paragraph at lines 130--132
 []\T1/ptm/m/n/10.95 Vetületek: []$\T1/pcr/m/n/10.95 https : \OML/cmm/m/it/10.95
  ==\T1/pcr/m/n/10.95 www . ipfradiologyrounds . com\OML/cmm/m/it/10.95 =\T1/pcr
 /m/n/10.95 hrct \OMS/cmsy/m/n/10.95 ^^@[] \T1/pcr/m/n/10.95 primer\OML/cmm/m/it
 /10.95 =\T1/pcr/m/n/10.95 image \OMS/cmsy/m/n/10.95 ^^@
  []
 
-) [37]
+[41]) [42]
 \openout2 = `nyilatkozat.aux'.
 
- (./nyilatkozat.tex) [38
+ (./nyilatkozat.tex) [43
 
 
 ]
 \openout2 = `koszonet.aux'.
 
- (./koszonet.tex) [39
+ (./koszonet.tex) [44
 
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 177.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 177.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 181.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 181.
  (./main.aux
-(./cimoldalSzakdoga.aux) (./toc.aux) (./feladat.aux) (./tartalmi.aux) (./ct.aux
-) (./gerincborda.aux) (./irodalom.aux) (./borda.aux) (./csigolya.aux)
-(./eredmenyek.aux) (./tovabb.aux) (./nyilatkozat.aux) (./koszonet.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 177.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 177.
+(./cimoldalSzakdoga.aux) (./feladat.aux) (./tartalmi.aux) (./toc.aux)
+(./motivacio.aux) (./ct.aux) (./gerincborda.aux) (./irodalom.aux)
+(./technology.aux) (./borda.aux) (./csigolya.aux) (./eredmenyek.aux)
+(./tovabb.aux) (./nyilatkozat.aux) (./koszonet.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 181.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 181.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 69847F4056B8E971B2684603FE95A92A;3018.
+(rerunfilecheck)             Checksum: 888969E476BBE292957CCCF574A164F0;3463.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 177.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 181.
  ) 
 Here is how much of TeX's memory you used:
- 31993 strings out of 492623
- 609397 string characters out of 6133290
- 836120 words of memory out of 5000000
- 35214 multiletter control sequences out of 15000+600000
+ 32043 strings out of 492623
+ 609897 string characters out of 6133290
+ 838120 words of memory out of 5000000
+ 35231 multiletter control sequences out of 15000+600000
  579250 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,12n,81p,414b,603s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,12n,81p,414b,601s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2019/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2019/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2019/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2019/texmf-dist/fonts/type1
@@ -1479,10 +1507,10 @@ e/2019/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2019/texmf-dis
 t/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2019/texmf-dist/fonts/type1/urw/
 times/utmr8a.pfb><c:/texlive/2019/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
 
-Output written on main.pdf (39 pages, 2325379 bytes).
+Output written on main.pdf (44 pages, 2406278 bytes).
 PDF statistics:
- 647 PDF objects out of 1000 (max. 8388607)
- 514 compressed objects within 6 object streams
- 129 named destinations out of 1000 (max. 500000)
- 532 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 724 PDF objects out of 1000 (max. 8388607)
+ 587 compressed objects within 6 object streams
+ 148 named destinations out of 1000 (max. 500000)
+ 588 words of extra memory for PDF output out of 10000 (max. 10000000)
 

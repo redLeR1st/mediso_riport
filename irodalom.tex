@@ -3,16 +3,18 @@
 \chapter{Irodalom áttekintés}
 A munka megkezdése elõtt számos publikációból merítettem ihletet mind a bordák, mind a csigolyák detektálására szánt algoritmus megvalósításához.
 A téma mai napig aktívan kutatott, mutatja ezt az is, hogy a cikkek között már a probléma megközelítésében is óriási eltérések figyelhetõek meg.
-Az általam megvizsgált írások között felelhetõek atlasz alapú, gépi tanulás, illetve szekvenciális algoritmusokon alapuló módszerek.
+Az általam megvizsgált írások között fellelhetõek atlasz alapú, gépi tanulás, illetve szekvenciális algoritmusokon alapuló módszerek.
 Az alábbi sorokban ezek közül összegzek.
 
 \section{Borda címkézés}
 \subsection{Bordák szegmentálása alacsony dózisú CT felvételeken \cite{SegmOfRibs}}
 
+Fontosnak találom megjegyezni, hogy e cikket vettem alapul az algoritmusom megvalósítása során.
+
 \textbf{Tesztelt képek:}
 
-115 alacsony dózissal felvett mellkasi CT képek, különbözõ szelet vastagsággal.
-5 CT felvétel az algoritmus paramétereinek a beállítására, 110 CT felvételt az algoritmus
+A cikkben szereplõ algoritmus megvalósításához 115 különbözõ szeletvastagsággal rendelkezõ, alacsony dózisú mellkasi CT képet használtak fel a szerzõk.
+Ebbõl 5 CT felvétel szolgált az algoritmus paramétereinek a behangolására, a további 110 CT felvételt az algoritmus
 kiértékelésére használtak ahol 98\%-os pontosságot értek el.
 
 \textbf{Elvi algoritmus:}
@@ -21,27 +23,29 @@ kiértékelésére használtak ahol 98\%-os pontosságot értek el.
 
 2. A gerinccsatorna közepének a meghatározása.
 
-3. A középvonal és a szegmentált csont alapján a borda magja (seed) kerül meghatározásra.
+3. A középvonal és a szegmentált csont alapján a borda magjának (seed) meghatározása.
 
 4. A magból különálló bordák növesztése elválasztva a hozzátartozó csigolyától.
 
 \textbf{Csont szegmentálás}
 
-Zajszûrés és küszöbölés. Elsõként minden képen 3x3-as átlagolószûrõt alkalmazunk, eztán jön
-a küszöbölés, ahol 175HU (Hounsfield) intenzitás alatti részeket nem vesszük számításba.
+A cikkben leírt csont szegmentálás eredménye tartalmazza az összes CT felvételen látható csontot, beleértve a gerincet, a bordákat, a szegycsontot, kulcscsontot, lapockákat.
+A szegmentálást egy zajszûrés elõzi meg melyben egy 3x3-as szerkesztõelemmel dolgozó átlagoló szûrõt alkalmaznak.
+Ezután a szûrt képet küszöbölik 175 HU-nál (Hounsfield) és ezzel elõ is áll az eredmény. 
 
 \textbf{Gerinccsatorna megrajzolása}
 
-A kezdõpont (seed point) automatikusan kerül meghatározásra a legalsó projekcióból. A
-csatorna iteratívan kerül megrajzolásra az aktuális($I_{i}$) és a rákövetkezõ($I_{i-1}$) képszeletbõl.
+A gerinccsatorna közepének a megrajzolása a szegmentált csontszerkezeten keresztül történik. 
+A kezdõpontot (seed point) automatikusan határozzák meg a legalsó projekcióból.
+A csatorna iteratívan kerül megrajzolásra az aktuális($I_{i}$) és a rákövetkezõ($I_{i-1}$) képszeletbõl.
 
-\textbf{Elvi algoritmus:}
+\textbf{A gerinccsatorna megrajzolásának elvi algoritmusa:}
 
 1. Kezdõpont megtalálása a legalsó képen.
 
 2. 2D távolság transzforámció kiszámítása a rákövetkezõ képen.
 
-3. Találjuk meg azt a pontot a rákövetkezõ képen ami a legközelebb van az aktuális képen kiszámolt ponthoz (1 lépésben ez a kezdõpont).
+3. A rákövetkezõ képen annak a pontnak a megtalálása ami a legközelebb van az aktuális képen kiszámolt ponthoz (1 lépésben ez a kezdõpont).
 
 4. Ismételjük az elsõ és a második lépést.
 
@@ -49,22 +53,20 @@ csatorna iteratívan kerül megrajzolásra az aktuális($I_{i}$) és a rákövetkezõ($I
 
 \textbf{Bordák szegmentálása}
 
-Ahhoz, hogy külön szegmentáljuk a bordákat el kell választanunk õket a csigolyáktól, hiszen a
-felvétel a csigolya és a borda egy egybefüggõ objektumként szerepel. Ezért egy mag (seed)
-régió kerül meghatározásra a bordákon, és ebbõl a régióból kerül kirajzolásra a borda befelé
-illetve kifelé haladva.
+A szerzõk megállapították, hogy a bordák külön szegmentálásához azok csigolyáktól való elválasztása szükséges, mivel a szegmentált felvételen a csigolyák és a bordák egybefüggõ objektumként szerepelnek.
+Ezért egy mag (seed) régió kerül meghatározásra a bordákon és ebbõl a régióból kezdõdik meg a bordák "növesztése" kifelé, illetve a gerinc felé haladva.
 
 \textbf{Magrégió meghatározása}
 
-A magrégió meghatározása egy \textit{w} érték beállításával történik, a \textit{w} a gerinccsatorna
-közepétõl vett távolságot jelenti, jobbról illetve balról.
-Ahhoz, hogy egy régiót bordához tartozó mag régiónak nevezhessünk két kritériumnak kell
-eleget tennie. Elõször is az intenzitása magasabb kell, hogy legyen, mint az elõre megadott
-küszöbérték (175HU). Másodszor a régiónak az összes bordát érintenie kell.
+A magrégiót egy \textit{w} érték beállításával határozzák meg.
+A \textit{w} a gerinccsatorna közepétõl vett távolságot jelenti, jobbról illetve balról.
+Azokat a régiókat nevezik bordához tartozó mag régióknak a szerzõk, melyekre két kritérium teljesül.
+Elõször is az intenzitásuk magasabb, mint az elõre megadott küszöbérték (175 HU).
+Másodszor a régiónak teljes szélességében bordát kell tartalmaznia.
 
 \textbf{Bordák növesztése}
 
-A magrégióból kinövesszük a bordákat 3D régió növesztést alkalmazva (3D region growing)
+Végezetül a magrégióból kinövesztik a bordákat egyszerû 3D régiónövelést alkalmazva (3D region growing).
 
 \textbf{Eredmények:}
 
@@ -83,32 +85,30 @@ készült felvételeket.
 
 \textbf{1.} 2010, Furuhashi et al. \cite{furu} módszere:
 
-Adaptív küszöbölés hisztogram analízis alapján, mely
-három, vagy négy fõ szürkeárnyalat jelenlétének az elõfordulását határozza meg. Mindegyik
-ilyen árnyalat megfeleltethetõ, a levegõnek, lágy szövetnek és a csontoknak, ez alapján
-válasszuk meg a küszöbértéket, ahol, csak a csont-ra utaló árnyalatokat tartjuk meg a képen.
+Adaptív küszöbölés hisztogram analízis alapján, mellyel
+három, vagy négy fõ szürke árnyalat jelenlétének az elõfordulását határozzák meg.
+Mindegyik ilyen árnyalat megfeleltethetõ, a levegõnek, lágy szövetnek és a csontoknak, ez alapján
+választják meg a küszöbértéket, ahol, csak a csont-ra utaló árnyalatokat tartják meg a képen.
 
 \textbf{2.} 2010, Banik et al. \cite{banik} módszere:
 
-Több szintû küszöbölést használtak (HU skála alapján). Az
-eredményt pedig morphologiai mûveletek bevetésével finomították. A küszöbölt képen
-morphológiai nyitást alkalmaztak, hogy elválasztják a bordákat a csigolyáktól. Ezt követõen az
-axiális szeletek meghatározzák a középvonalat amely végig megy a gerincen (gerinccsatorna). Ez azért szükséges, mert ha egy régió megfelelõ távolságra van ettõl a
-ponttól, (és átment a küszöbölésen) akkor az a borda része. Ezután a megtalált borda
-szerkezetének a fejlesztésére további morphológiai mûveleteket alkalmaznak.
+Több szintû küszöbölést használnak (HU skála alapján).
+Az eredményt pedig morfológiai mûveletek bevetésével finomítják.
+A küszöbölt képen morfológiai nyitást alkalmaznak, hogy elválasszák a bordákat a csigolyáktól. 
+Ezt követõen az axiális szeleteken meghatározzák a középvonalat amely végig megy a gerincen (gerinccsatorna).
+Ez azért szükséges, mert ha egy régió megfelelõ távolságra van ettõl a ponttól, (és átment a küszöbölésen) akkor az a borda része.
+Ezután a megtalált borda szerkezetének a fejlesztésére további morphológiai mûveleteket alkalmaznak.
 
 \textbf{3.} 2009, Zhou et al. \cite{zhou} módszere:
 
-Dinamikus hisztogram analízist használtak a
-küszöböléshez. Ez a módszer úgy tekint a csont és a máj régióra mint két Gauss eloszlásra és
-ezek kombinálva találja meg a legjobb threshold értéket. Ezután a csontrégiók 60 kategóriába
-osztják szét (csigolyák (18) bordák(12), szegycsont (3) stb..)
+Dinamikus hisztogram analízist használnak a küszöböléshez.
+Ez a módszer úgy tekint a csont és a máj régióra mint két Gauss eloszlásra és ezeket kombinálva találja meg a legjobb threshold értéket. Ezután a csontrégiókat 60 kategóriába sorolják (csigolyák (18) bordák(12), szegycsont (3) stb..)
 
 \textit{- Rekurzív megrajzolás (tracing)}
 
 \textbf{1.} 2004, Shen et al. \cite{shen} módszere:
 
-Magpont keresése a bordákon, a mellkashoz közel, majd ebbõl a magpontból bordák növesztése.
+A mellkashoz közel keresnek magpontot a bordákon, majd ebbõl a magpontból alkalmaznak régiónövelést.
 
 \textbf{2.} 2010, H. Li et al. \cite{li} módszere:
 
@@ -119,77 +119,74 @@ szeletnek nevezik (KSP) és a borda közepét magpontnak tekintik.
 
 \textbf{3.} 2012, Zhang et al. \cite{zhang} módszere:
 
-Koronális szeletek követésével képes teljesen elválasztott 12
-bordát szegmentálni, a középsõ szeletbõl kiindulva. A lehetséges bordát tartalmazó
-területeket 110HU-nál thresholdolták
+A módszer a koronális szeletek követésével képes teljesen elválasztott 12 bordát szegmentálni, a középsõ szeletbõl kiindulva.
+A lehetséges bordát tartalmazó területeket 110 HU-nál thresholdolják.
 
 \textbf{4.} 2012, Yao et al. \cite{yao} módszere: 
 
 A gerinc szegmentálásával kezdõdik.
-A bordák 200HU felett és 2cm-re a szegmentált gerinctõl detektálódnak.
-Majd egy kereszt sekciót (cross section) definiálunk a detektált szerkezet közepére.
+A bordákat 200 HU felett és 2cm-re a szegmentált gerinctõl detektálják.
+Majd egy kereszt sekciót (cross section) definiálnak a detektált szerkezet közepére.
 Az elsõ cross section meghatározása után az algoritmus egy B-spline görbével határozza meg a következõ cross sectiont.
 
-\textit{-Régió növelés (Region growing)}
+\textit{-Régiónövelés (Region growing)}
 
 \textbf{1.} 2002, Kim et al. \cite{kim} módszere:
 
-Hibrid módszer rekurzív megrajzolással (recursive tracing) és
-régiónöveléssel. A célobjektum a felhasználó által megadott kezdõpontból növeszti ki.
-Porckorong szivárgást (leakage) detektálhatunk vele. A szivárgást akkor találja meg amikor egy
-nem célobjektum összeolvad egy célobjektummal a következõ szeleten.
+Hibrid módszer rekurzív megrajzolással (recursive tracing) és régiónöveléssel.
+A célobjektumot a felhasználó által megadott kezdõpontból növeszti ki.
+Porckorong szivárgást (leakage) detektálhatunk vele.
+A szivárgást akkor találja meg amikor egy nem célobjektum összeolvad egy célobjektummal a következõ szeleten.
 
 \textbf{2.} 2012, Ramakrishnan et al. \cite{ramakrishnan} módszere:
 
-3D középvonal kinyerése a torakális szeletbõl. A Módszer
-két részre osztható.
+3D középvonal kinyerése a torakális gerincnél.
+A szerzõk módszere két részre osztható.
 
-a) Elõfeldolgozás ahol meghatározzuk a gerinc középvonalát az axiális vetületekbõl. A
-csontrégió az összefüggõ komponens analízis során kerül meghatározásra. Az összefüggõ
-komponensek közepe potencionális magpont(seed point).
+a) Elõfeldolgozás ahol meghatározzák a gerinc középvonalát az axiális vetületekbõl.
+A csontrégió az összefüggõ komponens analízis során kerül meghatározásra.
+Az összefüggõ komponensek közepét tekintik potenciális magpontnak (seed point).
 
-b) A magpont meghatározása után következik a Tracing Random Walker algoritmust
-használva.
+b) A magpont meghatározása után Tracing Random Walker algoritmust használnak.
 
 
-\textbf{Priorinformáció alakú módszerek}
+\textbf{Priorinformáció alapú módszerek}
 
 \textit{-Bordaketrec modell alapján}
 
 \textbf{1.} 2012 Wu et al. \cite{wu} módszere:
 
-A borda magpontját mintaillesztéssel, tanulás alapú objektum
-középvonal detektáló algoritmussal határozzák meg.
-Tanítóadatbázisnak 40 CT felvételt használtak, melyet
-kézzel annotáltak. A tanulás során elõáll egy probability response map amely megadja
-mindegyik voxel-re, hogy mennyi a valószínûsége annak, hogy bordához tartozik.
+A borda magpontját mintaillesztéssel, tanulás alapú objektum középvonal detektáló algoritmussal határozzák meg.
+Tanító adatbázisnak 40 CT felvételt használnak, melyet kézzel annotáltak.
+A tanulás során elõáll egy probability response map amely megadja mindegyik voxel-re, hogy mekkora valószínûséggel tartozik bordához.
 
 \textit{-Prior tudás alapján}
 
 \textbf{1.} 2013, Gargouri et al.\cite{gargouri} módszere:
 
-Mindegyik csont voxelhez egy jellemzõ vektor tartozik. Az
-elsõ alakleíró jellemzõ az úgynevezett Axial-inertia descriptor. Itt különösen az adott voxel
-halmaz lokális görbületére koncentráltak. A második jellemzõ az úgynevezett Rotation
-Invariant Shape Context Descriptor. Mindegyik csont voxelre kiszámoltak 56 sávot melyeknek a sugarait véletlenszerûen választották 2 és 35 között. Aztán az összes
-sávra kiszámolták, hogy hány csont voxelt érint. Ebbõl pedig elõáll a jellemzõ.
+Mindegyik csont voxelhez egy jellemzõ vektort rendelnek.
+Az elsõ alakleíró jellemzõ az úgynevezett Axial-inertia descriptor.
+Itt különösen az adott voxel halmaz lokális görbületére koncentrálnak. 
+A második jellemzõ az úgynevezett Rotation Invariant Shape Context Descriptor.
+Mindegyik csont voxelre kiszámolnak 56 sávot melyeknek a sugarait véletlenszerûen választják 2 és 35 között. Aztán az összes sávra kiszámolják, hogy hány csont voxelt érint.
+Ebbõl pedig elõáll a jellemzõ.
 
 \textbf{2.} 2007, Staal et al. \cite{staal} 5 lépéses módszere:
 
-1. Binarizálás 100HU és az 1D gerinc voxel (1D ridge voxel) meghatározása
+1. Küszöbölés 100 HU-nál és az 1D gerinc voxel (1D ridge voxel) meghatározása.
 
-2. Primitív elemek meghatározása az 1D gerinc voxelekbõl. A régiónövelés magpontja
-random kerül kiválasztásra a gerinc voxelekbõl.
+2. Primitív elemek meghatározása az 1D gerinc voxelekbõl. A régiónövelés magpontját
+véletlenszerûen választják ki a gerinc voxelekbõl.
 
-3. Spin-glass oszályozóval elválasztjuk a bordákat az egyéb primitívektõl. Ehhez két féle
-jellemzõ használunk, az egyik a lokális jellemzõ mely tartalmazza a geometriai 
+3. Spin-glass osztályozóval elválasztják a bordákat az egyéb primitívektõl. Ehhez kétféle
+jellemzõt használnak, az egyik a lokális jellemzõ mely tartalmazza a geometriai 
 információját a primitívnek a másik az intenzitás alapú jellemzõk és olyan jellemzõk,
-amelyek a primitívek közötti kapcsolatot kódolják le. Az összes jellemzõk közül azokat
-tartjuk meg melyek a legjobb teljesítményt nyújtják.
+amelyek a primitívek közötti kapcsolatot kódolják le. Az összes jellemzõ közül azokat
+tartják meg melyek a legjobb teljesítményt nyújtják.
 
 4. A következõ lépésben a borda primitívek középvonalakká kerülnek csoportosításra.
 
-5. Végül az egész szegmentálásra egy régiónövelõ algoritmust alkalmazunk.
+5. Végül az egész szegmentálásra egy régiónövelõ algoritmust alkalmaznak.
 
 
 \section{Csigolya címkézés}
@@ -210,34 +207,34 @@ felületi távolság (absolute surface distances) volt.
 
 \textbf{Módszer 1:}
 
-Elõfeldolgozás, kezdeti sorbaállítás, nem merev regisztráció és címke fúzió (label fusion). Az
+Elõfeldolgozás, kezdeti sorba állítás, nem merev regisztráció és címke fúzió (label fusion). Az
 elõfeldolgozó lépés a gerinccsatorna szegmentálásából, disc detektálásból, és csigolya pozíció
 és rotáció becslésbõl áll.
 
 \textbf{Módszer 2:}
 
 Statisztikai csigolya alak és pozíció modellen alapul, mely a gerincoszlop csontos éleit
-regisztrálja. Tanulóadatot gyûjtünk az összes csigolyáról, és különálló submodelleket építünk
+regisztrálja. Tanulóadatot gyûjtenek az összes csigolyáról, és különálló submodelleket építenek
 belõlük, egy csigolyához tartozó submodell tartalmazza a három szomszédos csigolya adatait.
-A modell paramétereit az EM (expectation maximization) algoritmussal optimalizáljuk.
+A modell paramétereit az EM (expectation maximization) algoritmussal optimalizálják.
 
 \textbf{Módszer 3:}
 
 A súlyozott totál variációt kombinálja a csont intenzitás, és alak információval. A csont
-intenzitás predikcióhoz, a normalizált elõteret (csont) és a háttér hisztogrammját tanulja meg
+intenzitás predikcióhoz, a normalizált elõteret (csont) és a háttér hisztogramját tanulja meg
 egy annotált adatbázisból.
 
 \textbf{Módszer 4:}
 
 Két részbõl áll, csigolya detektálás, és csigolyaszegmentálás. Spline interpoláción alapuló
-módszerekkel határozzuk meg a gerincoszlopot. A csigolya befoglalásokat Canny
-éldetektálással, és random forrest regressiós modell alkalmazásával határozzuk meg.
+módszerekkel határozzák meg a gerincoszlopot. A csigolya befoglalásokat Canny
+éldetektálással, és random forrest regressiós modell alkalmazásával határozzák meg.
 
 \textbf{Módszer 5:}
 
-Csak lumbáris csigolyákat dolgoznak fel. Egy független 30 felvételt tartalmazó adatbázisból
-mindegyik csigolyára megalkotnak egy statisztikai alak modellt (statistical shape models
-(SSM)). A manuálisan elhelyezett porckorong középpontokból kiszámoljuk a csigolya kezdõ
-alakját. Eztán ezt a kezdõalakot iteratívan változtatjuk a csigolya intenzitásához viszonyítva.
+Csak lumbális csigolyákat dolgoznak fel. Egy független 30 felvételt tartalmazó adatbázisból
+mindegyik csigolyára megalkotnak egy statisztikai alakmodellt (statistical shape models
+(SSM)). A manuálisan elhelyezett porckorong középpontokból kiszámolják a csigolya kezdõ
+alakját. Eztán ezt a kezdõalakot iteratívan változtatják a csigolya intenzitásához viszonyítva.
 
 

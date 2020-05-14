@@ -6,8 +6,8 @@ Az eredményeket az alábbi \ref{tab:eredmeny_tab}-es táblázat foglalja össze.
 Az algoritmus kiértékelése, illetve a paramétereinek behangolása 60 képen történt.
 Ezen 60 képen összesen 1423 borda látható a jobb és baloldali bordát külön számolva.
 
-A táblázat második oszlopában a kiszegmentált bordák száma látható.
-Szegmentált borda alatt azokat értjük, melyek a már címkézett képen szegmentáltan szerepelnek, nem feltétlenül helyes címkével.
+\Aref{tab:eredmeny_tab} táblázat második oszlopában a kiszegmentált bordák száma látható.
+Szegmentált bordák alatt azokat értjük, melyek a már címkézett képen szegmentáltan szerepelnek, nem feltétlenül helyes címkével.
 A táblázat harmadik oszlopa szigorúbb feltételt állít fel, itt a szegmentáltság mellett a borda címkéjének is megfelelõnek kell lennie.
 Egyes esetekben elõfordulhat, hogy a bordák jó sorrendben kerülnek felcímkézésre, de zaj, vagy csigolyanyúlvány bekerülése miatt elcsúszik a címkézés.
 A táblázat utolsó oszlopa a fix pont segítségével címkézett bordák arányát számszerûsíti.
@@ -24,14 +24,14 @@ A táblázat utolsó oszlopa a fix pont segítségével címkézett bordák arányát száms
 	\caption{Eredmények összefoglalása bordák címkézésére} \label{tab:eredmeny_tab}
 \centering
 \end{table}
-\section{Csigolyák szétválasztása bordák alapján}
+\section{A csigolyák szétválasztása bordák alapján}
 A csigolyák szétválasztása ugyanazon a 60 képen került kiértékelésre mint a bordacímkézés.
 A képekre egyenként megvizsgáltuk, hogy az algoritmus által becsült szétválasztás adott csigolyára milyen távol van az eredeti helyétõl.
 Ezt a távolságot az axiális szeletek számában tudjuk kifejezni.
 \Aref{tab:eredmeny_tab_ver} táblázatban láthatóak a csigolyánkénti átlag hibák szeletszámban kifejezve.
 A táblázat felsõ sora annak a csigolyának a címkéjét reprezentálja melyet el szeretnénk választani fölötte lévõ csigolyától.
 A címke pedig a csigolyához tartozó borda alapján kerül meghatározásra.
-Az 1-es számú címke az elsõ bordát, és ahhoz tartozó csigolyát jelenti, és így sorba a többi.
+Az 1-es számú címke az elsõ bordát, és az ahhoz tartozó csigolyát jelenti, és így sorba a többi.
 
 \Aref{fig:ver_hiba} ábrán szemlélteti a hiba változását, melyen jól látszik, hogy a 11. illetve a 12. bordákhoz tartozó csigolyák a legproblémásabbak.
 Ez nem véletlen, hiszen a két utolsó borda a lengõborda eltér a többi bordától.
@@ -86,7 +86,7 @@ E fejezetben különbözõ esetekre láthatunk példákat a bordák címkézésének folyama
 Az esetenkénti elsõ képeken a csont szegmentálásának az eredményét láthatjuk.
 Itt még minden csontszerkezet látszik.
 A második képeken látható a gerinc kijelölésének végleges eredménye.
-A gerinc kijelölése három lépésbõl áll, itt most csak az utolsó lépés eredményét szemléltetem, azzal, hogy visszavetítem az eredeti CT képre így látszik csak a gerinc.
+A gerinc kijelölése három lépésbõl áll, itt most csak az utolsó lépés eredményét szemléltetem, azzal, hogy visszavetítem az eredeti CT képre, így látszik csak a gerinc.
 Végül az utolsó képeken látható a bordák detektálásának az eredménye.
 Szürke árnyalatokkal látható a csont illetve a segédvonalak melyek mentén zajlik a bordák keresése és színesen pedig már az szegmentált, illetve felcímkézett bordák.
 A segédvonalakat a detektált körök alapján helyezem el, ez ki is rajzolódik az utolsó képek jobboldali képén.
@@ -99,12 +99,12 @@ A különbözõ színû bordák különbözõ címkéket reprezentálnak.
 \begin{figure}[h]
 	\includegraphics[width=\scale\textwidth]{csont_1_7}
 	\centering
-	\caption{Csont szegmentálás (1. eset)} \label{fig:korrig_1_1}
+	\caption{Csontszegmentálás (1. eset)} \label{fig:korrig_1_1}
 \end{figure}
 \begin{figure}[h]
 	\includegraphics[width=\scale\textwidth]{gerinc_2_7}
 	\centering
-	\caption{Gerinc kijelölés (1. eset)} \label{fig:korrig_1_1}
+	\caption{Gerinckijelölés (1. eset)} \label{fig:korrig_1_1}
 \end{figure}
 \begin{figure}[h]
 	\includegraphics[width=\scale\textwidth]{szeg_3_7}
@@ -118,12 +118,12 @@ A különbözõ színû bordák különbözõ címkéket reprezentálnak.
 \begin{figure}[h]
 	\includegraphics[width=\scale\textwidth]{csont_1_11}
 	\centering
-	\caption{Csont szegmentálás (2. eset)} \label{fig:korrig_1_1}
+	\caption{Csontszegmentálás (2. eset)} \label{fig:korrig_1_1}
 \end{figure}
 \begin{figure}[h]
 	\includegraphics[width=\scale\textwidth]{gerinc_2_11}
 	\centering
-	\caption{Gerinc kijelölés (2. eset)} \label{fig:korrig_1_1}
+	\caption{Gerinckijelölés (2. eset)} \label{fig:korrig_1_1}
 \end{figure}
 \begin{figure}[h]
 	\includegraphics[width=\scale\textwidth]{szeg_3_11}
@@ -276,8 +276,8 @@ A zárójelben felsorolt képeken (
 %\ref{fig:hatar_09},
 \ref{fig:hatar_12}, \ref{fig:hatar_13}
 %, \ref{fig:hatar_14}, \ref{fig:hatar_39}, \ref{fig:hatar_46}
-) a csigolya közötti rések becslését láthatjuk a borda alapú módszer segítségével.
-A borda alapú algoritmus eredménye a piros vonal mélység koordinátája.
+) a csigolya közötti rések becslését láthatjuk a bordaalapú módszer segítségével.
+A bordaalapú algoritmus eredménye a piros vonal mélység koordinátája.
 A zöld nyíl azt mutatja meg, hogy hol kellene elhelyezkednie a csigolyák határának. 
 Ahol nincs drasztikus eltérés az algoritmus eredménye és a tényleges határ között, oda nem került berajzolásra.
 Láthatjuk, hogy az alsó csigolyákhoz kapcsolódó lengõbordákkal történõ becslés instabil eredményt szolgáltat, míg a gerinc közepén lévõ csigolya közti rések helyesen szerepelnek több esetben is.

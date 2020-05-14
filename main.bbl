@@ -14,6 +14,10 @@ E~Contini.
 \newblock Rib cage segmentation in ct scans.
 \newblock Master's thesis, 2014.
 
+\bibitem{github}
+A~dolgozat témáját megvalósító algoritmus~forráskódja:
+  \url{https://github.com/redLeR1st/rib_segmentation}.
+
 \bibitem{ctfelipetes}
 A~CT felépítése és~mûködése:
   \url{https://www.radiologycafe.com/radiology-trainees/frcr-physics-notes/ct-equipment}.
@@ -25,6 +29,18 @@ Satoru Furuhashi, Katsumi Abe, Motoichiro Takahashi, Takuya Aizawa, Takashi
 \newblock A computer-assisted system for diagnostic workstations: automated
   bone labeling for ct images.
 \newblock {\em Journal of digital imaging}, 22(6):689--695, 2009.
+
+\bibitem{cmake}
+CMake fõoldala: \url{https://cmake.org/overview/}.
+
+\bibitem{git}
+Git fõoldala: \url{https://git-scm.com/}.
+
+\bibitem{itk}
+Insight~Toolkit fõoldala: \url{https://itk.org/}.
+
+\bibitem{vs}
+Visual~Studio fõoldala: \url{https://visualstudio.microsoft.com/}.
 
 \bibitem{CTHist}
 Liugang Gao, Hongfei Sun, Xinye Ni, Mingming Fang, and Tao Lin.
@@ -97,9 +113,18 @@ Joes Staal, Bram van Ginneken, and Max~A Viergever.
   objects in volumetric data.
 \newblock {\em Medical Image Analysis}, 11(1):35--46, 2007.
 
+\bibitem{c++}
+Bjarne Stroustrup.
+\newblock {\em The C++ programming language}.
+\newblock Pearson Education, 2013.
+
 \bibitem{akum}
 Hough transzformáció~körökre:
   \url{https://www.cis.rit.edu/class/simg782.old/talkHough/HoughLecCircles.html}.
+
+\bibitem{ide}
+Integrált Fejlesztõi~Környezet:
+  \url{https://searchsoftwarequality.techtarget.com/definition/integrated-development-environment}.
 
 \bibitem{plane}
 Vetületek:

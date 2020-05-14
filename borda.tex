@@ -1,6 +1,6 @@
 % !TeX encoding = ISO-8859-2
 
-\chapter{Borda címkézés}
+\chapter{A bordák címkézése}
 
 A bordák címkézését megvalósító algoritmushoz J. Lee és társai \cite{SegmOfRibs} publikációjában megfogalmazottakat vettem alapul.
 Ez alapján az algoritmusom fõbb lépései \aref{fig:alg1} ábrán láthatjuk.
@@ -10,14 +10,14 @@ Az alábbi alfejezetben ezeket taglalom részletesen.
 \centering
 \caption{Borda címkézõ algoritmus lépései} \label{fig:alg1}
 \end{figure}
-\section{Csont szegmentálása}
+\section{A csont szegmentálása}
 Egy CT felvételen a levegõtõl a vízen át a csontokon keresztül a kemény implantátumokkal befejezõleg rengeteg különbözõ intenzitás fellelhetõ.
 A feladat szempontjából nekünk a csontot reprezentáló intenzitásokra van szükségünk.
 Meg kell határoznunk, hogy különbözõ képeken hol található a határ a lágy szövetek és a csont között.
 Ennek a megoldását részletezem a következõkben.
 
-\subsection{Otsu szegmentálás}
-Otsu szegmentálási módszere, olyan automatikus megoldást nyújt, mely segítségével elég csak a kép hisztogramát felhasználnunk a küszöbérték meghatározására.
+\subsection{Az Otsu szegmentálás}
+Otsu szegmentálási módszere, olyan automatikus megoldást nyújt, mely segítségével elég csak a kép hisztogramját felhasználnunk a küszöbérték meghatározására.
 Az algoritmus lényegében azt a \textit{t} küszöbértéket keresi, amely minimalizálja az elõtér és a háttér közötti varianciát. \cite{otsu}
 \begin{figure}[htp]
 	
@@ -25,8 +25,8 @@ Az algoritmus lényegében azt a \textit{t} küszöbértéket keresi, amely minimalizá
 	\centering
 	\caption{Histogram és otsuval meghatározott threshold érték} \label{fig:otsu_hist}
 \end{figure}
-A módszer \aref{eq:var}-es egyenlet minimalizálásával találja meg az optimális \textit{t} küszöbértéket.
-Szemléletesen pedig \aref{fig:otsu_hist} ábrán láthatjuk ahol a piros függõleges vonal az optimális küszöbértéket jelöli.
+A módszer \aref{eq:var}-es egyenlet minimalizálásával találja meg az optimális \textit{t} küszöbértéket, ahol $\omega_0(t)$ és $\omega_1(t)$ a \textit{t} küszöbérték által elválasztott osztályok valószínûsége (elõtér, háttér), $\sigma_0^2$ és $\sigma_1^2$ pedig az osztályok varianciája.
+Szemléletesen \aref{fig:otsu_hist} ábrán láthatjuk a módszer eredményét ahol a piros függõleges vonal az optimális küszöbértéket jelöli.
 
 \begin{equation} \label{eq:var} 
 \begin{aligned}
@@ -34,29 +34,28 @@ Szemléletesen pedig \aref{fig:otsu_hist} ábrán láthatjuk ahol a piros függõleges
 \end{aligned}
 \end{equation}
 
-\subsection{Csont szegmentálása CT képeken}
+\subsection{A csont szegmentálása CT képeken}
 Otsu módszere több küszöbérték keresésére is alkalmas, CT képek esetén például egyszerû megoldást nyújt a háttér, a levegõ, a lágy szövet, és a csont elválasztására.
-Elég pusztán a CT felvétel hisztogramát használnunk a megfelelõ threshold érték megkeresésére.
+Elég pusztán a CT felvétel hisztogramját használnunk a megfelelõ threshold érték megkeresésére.
 Ez orvosi képeknél azonban meglehetõsen eltérõ lehet egymástól.
 A Liugang Gao és társai \cite{CTHist} által megfogalmazottakban a 12-bit-es intenzitás mélységek gyakran használtak a CT felvételeknél.
 E  segítségével 4096 intenzitást jeleníthetünk meg, -1024 HU és 3071 HU között.
 Késõbb felmerült az igény, hogy kemény fém implantátumok is jól láthatóak legyenek a felvételeken.
 Ezek megjelenítésére a 3071 HU sokszor kevésnek bizonyul ezért 16 bitre emelték a képek intenzitás mélységét.
-
 Ez különbözõ szélességû hisztogramokat eredményez, ami az Otsu algoritmust befolyásolja.
 A hisztogramokat érdemes hasonló alakra hozni, ezt a eljárást nevezzünk normalizálásnak.
 
 Ennek az egyik módszere a következõ.
-Az adott kép hisztogramát 0-tót lefelé illetve 1000-tõl felfelé eldobjuk.
+Az adott kép hisztogramját 0-tót lefelé illetve 1000-tõl felfelé eldobjuk.
 Ebbe a tartományba a lágy szövetek és a csontok tartoznak bele, hogy a kettõ között pontosan hol helyezkedik el a határ az Otsu könnyedén meg fogja határozni egy darab threshold érték keresésével.
 A levágás után a hisztogram 1000 értékét 50 darab "kalapban" egyesítjük, ezeket a kalapokat \textit{bin}-eknek nevezzük.
 A binek használata egyfajta simítást eredményez a képen, segít abban, hogy a különbözõ zajok kevésbé legyenek kihatással a Otsu eredményére.
 
-\section{Gerinc kijelölés}
+\section{A gerinc kijelölése}
 A gerinc helyzetének meghatározása kulcsfontosságú a bordadetektálás szempontjából.
-Tudjuk, hogy a bordák, a gerinchez kapcsolódnak, ezért, ha ismerjük a gerinc helyzetét, könnyen megtalálhatjuk a csigolyákhoz tartozó bordákat is, a gerinc mentét pásztázva.
+Tudjuk, hogy a bordák, a gerinchez kapcsolódnak, ezért, ha ismerjük a gerinc helyzetét, könnyen megtalálhatjuk a csigolyákhoz tartozó bordákat is, a gerinc mentét pásztázva. Az algoritmus lépései \aref{fig:gerinc_ki} ábrán láthatóak.
 
-\subsection{Hough transzformáció}
+\subsection{A Hough transzformáció}
 A Hough transzformáció segítségével paraméteresen leírható objektumokat detektálhatunk, képeken.
 A mi esetünkben körök detektálásáról lesz szó, de más objektumok, például egyenesek detektálására is alkalmas.
 A kör jelöltek "szavazás" segítségével állnak elõ, így több kör detektálására is alkalmas.
@@ -72,13 +71,13 @@ Ezzel a paraméterterünk kétdimenziósra csökken, de csak meghatározott sugarú kör
 
 Keressük tehát \textit{(a, b)} paramétert, vagyis a kör pozícióját a képen.
 \textit{(a, b)} paraméterek lehetséges értékeit nyilvántarthatjuk egy két dimenziós mátrixban szemléletesen \aref{fig:hough} ábra jobb oldali koordináta rendszerében látható.
-Ezt a mátrixot nevezzük akumlátor képnek.
-A keresett kör \aref{fig:hough} ábra baloldali koordinátarendszerében helyezkedik el.
-E körön válasszunk ki például három pontot, de az objektum többi pontja is felhasználható, majd e három pont körül rajzoljunk köröket az akumlátor képen, úgy, hogy minden körön lévõ pixelt egyel növeljünk a mátrixban.
+Ezt a mátrixot nevezzük akkumulátor képnek.
+A keresett kör \aref{fig:hough} ábra baloldali koordináta rendszerében helyezkedik el.
+E körön válasszunk ki például három pontot, de az objektum többi pontja is felhasználható, majd e három pont körül rajzoljunk köröket az akkumulátor képen, úgy, hogy minden körön lévõ pixelt eggyel növeljünk a mátrixban.
 A három kör metszéspontja lokális - és ebben az esetben globális is - maximum lesz.
 Ennek a maximum pontnak az \textit{(a, b)} koordinátái lesznek az eredeti kör középpontjának a koordinátái.
 
-Különbözõ sugarú köröket is detektálhatunk e módszer segítségével, ekkor az \textit{r} paraméter új dimenzióként bekerül az akumlátor képbe.
+Különbözõ sugarú köröket is detektálhatunk e módszer segítségével, ekkor az \textit{r} paraméter új dimenzióként bekerül az akkumulátorképbe.
 
 \begin{figure}[!tbp]
 \centering
@@ -87,14 +86,14 @@ Különbözõ sugarú köröket is detektálhatunk e módszer segítségével, ekkor az \tex
 \end{figure}
 
 
-\subsection{Körök keresése axiális szeleteken}
+\subsection{A körök keresése axiális szeleteken}
 A gerinc kijelölésének algoritmusa egy egyszerû észrevételen alapszik, miszerint a gerinc az axiális vetületekbõl
 nézve kör alakú.
 A szegmentált kép axiális szeletein keressünk kör, illetve kör alakú objektumot a Hough transzformáció segítségével.
 A talált körök nagy valószínûséggel a gerincre fognak esni, mivel az axiális vetületeken kevés más hasonló méretû kör alakú objektum látható.
 Az algoritmus eredménye \aref{fig:korrig_0_58} ábrán látható.
 %Az algoritmus eredménye \aref{fig:korrig_0_60} ábrán látható.
-\subsection{Körök helyzetének korrigálása}
+\subsection{A körök helyzetének korrigálása}
 Elõfordulhat azonban, hogy a keresést zaj, kevés csont vagy más kör alakú objektumok (például aorta) jelenléte nehezíti meg.
 A Hough transzformáció segítségével több kör detektálására is képesek vagyunk egy képen.
 Ezeket a köröket sorba rendezhetjük aszerint, hogy mennyire valószínû, hogy valóban körrõl van szó.
@@ -115,12 +114,12 @@ Az algoritmus eredménye \aref{fig:korrig_1_58} ábrán látható.
 \end{figure}
 \end{comment}
 
-\subsection{Körök helyzetének második korrigálása}
+\subsection{A körök helyzetének második korrigálása}
 Elõfordulhat olyan eset is, hogy az adott szeleten egyáltalán nem látszik kör, például a ritka csontozat miatt.
 Ebben az esetben a Hough transzformáció aligha fog megfelelõ pozíciójú kört találni.
 Ennek a problémának a megoldására szolgál az úgynevezett második korrekciós lépés, mely szerint lokálisan, a körnek meghatározott számú szomszédjából számolunk átlag/medián pozíciót.
-A rossz helyen lévõ kört ezzel kiszámolt értékkel helyettesítjük.
-A módszer átlagoló/medián szûrõhöz hasonló elven mûködik.
+A rossz helyen lévõ kört ezzel a kiszámolt értékkel helyettesítjük.
+A módszer az átlagoló/medián szûrõhöz hasonló elven mûködik.
 Az algoritmus eredménye \aref{fig:korrig_2_58} ábrán látható.
 %Az algoritmus eredménye \aref{fig:korrig_2_60} ábrán látható.
 
@@ -132,7 +131,7 @@ Az algoritmus eredménye \aref{fig:korrig_2_58} ábrán látható.
 \end{figure}
 \end{comment}
 \begin{figure}[h]
-	\includegraphics{gerinc_kinyeres.pdf}
+	\includegraphics[width=\textwidth]{gerinc_kinyeres.png}
 	\centering
 	\caption{Gerinckijelölés lépései} \label{fig:gerinc_ki}
 \end{figure}
@@ -239,7 +238,7 @@ Az algoritmus eredménye \aref{fig:korrig_2_58} ábrán látható.
 
 
 
-\section{Magpontok meghatározása}
+\section{A magpontok meghatározása}
 A gerinc kijelölése kritikus fontosságú az algoritmus szempontjából, hiszen a következõ lépések erre építkeznek.
 A bordákat régiónöveléssel tudjuk kijelölni a szegmentált képen.
 A régiónöveléshez magpontokra van szükségünk.
@@ -253,7 +252,7 @@ Használható lenne a nyolc-szomszédság is, de a feladat szempontjából elõnyösebb,
 Például kisebb lesz az esélye a borda-lapocka összenövésnek.
 
 \section{Nem bordaalakú objektumok eltávolítása}
-A régió növelés után ideális esetben elõáll a kép ami csak a bordákat tartalmazza.
+A régiónövelés után ideális esetben elõáll a kép ami csak a bordákat tartalmazza.
 Azonban gyakorinak nevezhetõek a nem ideális esetek is ahol a bordák keresésének az útját egyéb objektumok is keresztezik.
 Ezek tipikusan csigolyanyúlványok, illetve lapockák.
 A különbözõ objektumok különbözõ alakleíró tulajdonságokkal rendelkeznek.
@@ -264,7 +263,7 @@ Az elsõ objektumon megfigyelhetünk egy nagy, és kettõ kicsi sajátértéket, ebbõl 
 A középsõ objektumon két nagy és egy kicsi sajátértékkel bír, így alakja henger.
 Végül közel hasonló sajátértékekkel rendelkezõ objektumok gömb alakúak.
 
-A különbözõ bordáknál is megfigyelhetõ hogy két nagy illetve egy kicsi sajátértékkel rendelkeznek, ezt kihasználva elhagyhatjuk az ennek nem megfelelõ objektumokat.
+A különbözõ bordáknál is megfigyelhetõ hogy két nagy illetve egy kicsi sajátértékkel rendelkeznek, ezt kihasználva elhagyhatjuk az ennek a tulajdonságnak nem megfelelõ objektumokat.
 Például egy lapocka esetében a sajátértékek aránya \aref{fig:sajat_ert} ábrán az elsõ objektuméhoz fog hasonlítani, míg a bordáké a középsõ, henger alakúhoz.
 
 \begin{figure}[h]
@@ -272,17 +271,17 @@ Például egy lapocka esetében a sajátértékek aránya \aref{fig:sajat_ert} ábrán az
 	\caption{Különbözõ objektumok sajátértékei \cite{hese}} \label{fig:sajat_ert}
 \end{figure}
 
-\section{Bordák címkézés újranövesztéssel}
+\section{A bordák címkézése újranövesztéssel}
 A nem bordaalakú objektumok eltávolítása után következhet, a bordák megfelelõ sorrendben történõ címkézése.
 Az összefüggõ komponensek algoritmusa definiálhat egy címkézést, de nem veszi figyelembe a bordák anatómiai sorrendjét.
 
-Az címkézõ algoritmus bemenete csak a bordákat tartalmazza, mivel az elõzõ lépésben eltávolítottuk az egyéb objektumokat, de fontos, hogy a bordáknak külön címkéjük legyen, vagyis külön objektumként jelenjenek meg, ezt a régiónövelés tudja biztosítani.
-A keresés ugyan olyan módszerrel történik, mint az 4.3-as fejezetben leírt magpont meghatározás, azzal a különbséggel, hogy itt már biztosak lehetünk benne, hogy csak bordák fordulhatnak elõ.
+Az címkézõ algoritmus bemenete csak a bordákat tartalmazza, mivel az elõzõ lépésben eltávolítottuk az egyéb objektumokat, de fontos, hogy a bordáknak külön címkéjük legyen, vagyis külön objektumként jelenjenek meg, ezt újabb régiónövelés tudja biztosítani.
+A keresés ugyan olyan módszerrel történik, mint az 5.3-as fejezetben leírt magpont meghatározás, azzal a különbséggel, hogy itt már biztosak lehetünk benne, hogy csak bordák fordulhatnak elõ.
 A keresés során nyilvántartunk egy számlálót.
 E számláló értékét fogjuk az adott bordához rendelni.
 Az axiális szeleteken végighaladunk és, valahányszor objektumba, vagyis bordába, ütközünk, annak az eredeti címkéjét átírjuk a számláló értékére, majd növeljük azt.
 
-\section{Bordák címkézés bounding boxal}
+\section{A bordák címkézése bounding boxszal}
 Az újra növesztéses módszer nem túl hatékony, hiszen rengeteg régiónövelést tartalmaz, amit már egyszer különben is végrehajtott az algoritmus, egy elõzõ lépésben.
 Az elõzõ alfejezetben is említésre került, hogy a régiónövelés definiál egy anatómiailag helytelen címkézését.
 Ebben a módszerben nem növesztjük újra a bordákat, hanem az objektumokhoz tartozó címkéket módosítjuk.
@@ -292,8 +291,8 @@ A sorba rendezés után frissítsük a címkéket.
 Azt is megtudjuk állapítani, hogy melyik objektum/borda melyik oldalon található, ha összehasonlítsuk a boundig boxok közepének az X koordinátáját.
 Választhatunk a boundig box közepe helyett más tetszõleges jellegzetes pontot is például egy sarkot, de akkor ezt konzisztensen kell alkalmaznunk.
 
-A bounding boxal való címkézés jobb eredményeket produkál mint az újranövesztéses módszer.
-Az újranövesztéssel 70\%-os pontosság érhetõ el, míg a bounding boxal 79\%.
+A bounding boxszal való címkézés jobb eredményeket produkál mint az újranövesztéses módszer.
+Az újranövesztéssel 70\%-os pontosság érhetõ el, míg a bounding boxszal 79\%.
 
 
 
